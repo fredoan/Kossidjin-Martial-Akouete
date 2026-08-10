@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Kossidjin Martial Akouete | Analyste Géopolitique • Diplomatie & Sécurité</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0A1A2F;
+            --navy-light: #0F2544;
+            --navy-deep: #050F1C;
+            --gold: #C6A34B;
+            --gold-bright: #E0C87C;
+            --gold-pale: #F2E5C9;
+            --ivory: #FCFAF6;
+            --white: #FFFFFF;
+            --text-dark: #1A1A1A;
+            --text-muted: #6B7280;
+            --border-gold: rgba(198, 163, 75, 0.25);
+            --shadow-gold: 0 15px 35px rgba(198,163,75,0.3);
+            --shadow-card: 0 25px 50px -12px rgba(0,0,0,0.25);
+            --transition-royal: cubic-bezier(0.4, 0, 0.2, 1);
+            --whatsapp-green: #25D366;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--ivory);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ========== LOADER ========== */
+        #loader {
+            position: fixed; inset: 0; background: var(--navy-deep); z-index: 99999;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            transition: opacity 0.9s ease, visibility 0.9s ease; pointer-events: all;
+        }
+        #loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+        .loader-globe {
+            width: 90px; height: 90px; position: relative; margin-bottom: 30px;
+        }
+        .globe-ring {
+            position: absolute; width: 100%; height: 100%;
+            border: 2px solid rgba(198,163,75,0.3);
+            border-radius: 50%;
+            animation: spin 10s linear infinite;
+        }
+        .globe-meridian {
+            position: absolute; width: 80%; height: 80%; top: 10%; left: 10%;
+            border: 2px dashed var(--gold);
+            border-radius: 50%;
+            animation: spin 15s linear infinite reverse;
+            opacity: 0.7;
+        }
+        .globe-dot {
+            position: absolute; top: 50%; left: 50%;
+            width: 8px; height: 8px; background: var(--gold);
+            border-radius: 50%; transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px var(--gold);
+            animation: pulseGlow 1.5s infinite;
+        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes pulseGlow {
+            0%,100% { box-shadow: 0 0 10px var(--gold); }
+            50% { box-shadow: 0 0 30px var(--gold-bright); }
+        }
+        .loader-name {
+            font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700;
+            color: var(--gold-bright); letter-spacing: 0.08em;
+            opacity: 0; animation: fadeUp 0.8s 0.4s ease forwards;
+        }
+        .loader-sub {
+            font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.35em;
+            color: rgba(198,163,75,0.6); margin-top: 8px;
+            opacity: 0; animation: fadeUp 0.8s 0.7s ease forwards;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== FLOATING WHATSAPP BUTTON ========== */
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px;
+            width: 65px; height: 65px; background-color: var(--whatsapp-green);
+            border-radius: 50%; box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            z-index: 9998; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;
+            animation: pulseW 2s infinite; text-decoration: none;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 12px 30px rgba(0,0,0,0.6); }
+        .whatsapp-float svg { width: 36px; height: 36px; fill: white; }
+        @keyframes pulseW {
+            0%,100% { box-shadow: 0 8px 25px rgba(0,0,0,0.4), 0 0 0 0 rgba(37,211,102,0.4); }
+            50% { box-shadow: 0 8px 35px rgba(0,0,0,0.6), 0 0 0 15px rgba(37,211,102,0); }
+        }
+
+        /* ========== NAVIGATION ========== */
+        nav {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            padding: 18px 50px; display: flex; align-items: center; justify-content: space-between;
+            background: transparent; transition: all 0.4s var(--transition-royal);
+        }
+        nav.scrolled {
+            background: rgba(10, 26, 47, 0.92); backdrop-filter: blur(25px);
+            padding: 12px 50px; box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+            border-bottom: 1px solid var(--border-gold);
+        }
+        .nav-logo {
+            font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700;
+            color: var(--gold); letter-spacing: 0.06em; text-decoration: none;
+        }
+        .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
+        .nav-links a {
+            text-decoration: none; color: rgba(255,255,255,0.85); font-size: 0.8rem;
+            font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase;
+            position: relative; padding-bottom: 4px; transition: color 0.3s;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px;
+            background: var(--gold); transition: width 0.3s;
+        }
+        .nav-links a:hover { color: var(--white); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-cta {
+            background: var(--gold); color: var(--navy-deep) !important;
+            padding: 10px 24px; border-radius: 50px; font-weight: 700 !important;
+            font-size: 0.75rem !important; transition: all 0.35s;
+        }
+        .nav-cta:hover { background: var(--gold-bright); transform: translateY(-2px); box-shadow: var(--shadow-gold); }
+
+        .hamburger { display: none; flex-direction: column; gap: 6px; cursor: pointer; background: none; border: none; z-index: 1100; }
+        .hamburger span { width: 28px; height: 2.5px; background: var(--gold); display: block; transition: 0.35s; border-radius: 2px; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px,6px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px,-6px); }
+        .menu-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 1040; opacity: 0; visibility: hidden; transition: 0.4s; }
+        .menu-overlay.active { opacity: 1; visibility: visible; }
+
+        /* ========== HERO ========== */
+        #hero {
+            position: relative; min-height: 100vh;
+            background: radial-gradient(ellipse at 20% 30%, var(--navy-light) 0%, var(--navy) 70%);
+            display: flex; align-items: center; justify-content: center; overflow: hidden;
+        }
+        .hero-pattern {
+            position: absolute; inset: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" opacity="0.03"><circle cx="100" cy="100" r="80" stroke="%23C6A34B" stroke-width="0.8"/><path d="M20 100 L180 100 M100 20 L100 180" stroke="%23C6A34B" stroke-width="0.5"/></svg>');
+            background-size: 160px 160px; pointer-events: none;
+        }
+        .hero-glow {
+            position: absolute; width: 500px; height: 500px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(198,163,75,0.12) 0%, transparent 70%);
+            top: -150px; right: -100px; pointer-events: none;
+            animation: floatGlow 10s infinite alternate;
+        }
+        @keyframes floatGlow {
+            0% { transform: translate(0,0) scale(1); }
+            100% { transform: translate(30px,-30px) scale(1.05); }
+        }
+        .hero-container {
+            position: relative; z-index: 2; display: flex; align-items: center; gap: 70px;
+            max-width: 1250px; width: 90%; padding: 130px 20px 80px;
+        }
+        .hero-portrait {
+            flex-shrink: 0; width: 370px; height: 460px;
+            border-radius: 50% 20% 50% 20% / 20% 50% 20% 50%; overflow: hidden;
+            border: 5px solid var(--gold); box-shadow: var(--shadow-card), 0 0 30px rgba(198,163,75,0.35);
+        }
+        .hero-portrait img { width: 100%; height: 100%; object-fit: cover; }
+        .hero-badge {
+            position: absolute; bottom: -20px; right: -25px; background: var(--gold);
+            color: var(--navy-deep); font-family: 'Playfair Display', serif; font-weight: 800;
+            font-size: 0.9rem; padding: 12px 22px; border-radius: 8px;
+        }
+        .hero-text { flex: 1; color: var(--white); }
+        .hero-pre { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--gold-pale); margin-bottom: 14px; }
+        .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 5.5vw, 3.8rem); font-weight: 800; line-height: 1.1; margin-bottom: 12px; }
+        .hero-title .gold { color: var(--gold-bright); }
+        .hero-sub { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: rgba(255,255,255,0.75); margin-bottom: 18px; }
+        .hero-desc { font-size: 0.95rem; color: rgba(255,255,255,0.65); max-width: 520px; margin-bottom: 30px; }
+        .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn-gold {
+            background: var(--gold); color: var(--navy-deep); padding: 14px 32px;
+            border-radius: 50px; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.06em;
+            text-transform: uppercase; text-decoration: none; transition: all 0.35s;
+        }
+        .btn-gold:hover { background: var(--gold-bright); transform: translateY(-3px); box-shadow: var(--shadow-gold); }
+        .btn-outline {
+            background: transparent; color: var(--white); border: 2px solid rgba(198,163,75,0.6);
+            padding: 14px 32px; border-radius: 50px; font-weight: 600; font-size: 0.8rem;
+            letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; transition: all 0.35s;
+        }
+        .btn-outline:hover { border-color: var(--gold-bright); color: var(--gold-bright); }
+
+        .scroll-hint { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 5; text-align: center; animation: bounceDown 2s infinite; }
+        .scroll-hint span { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.25em; color: rgba(198,163,75,0.7); }
+        .scroll-line { width: 2px; height: 35px; background: linear-gradient(to bottom, var(--gold), transparent); margin: 0 auto; }
+        @keyframes bounceDown {
+            0%,100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(14px); }
+        }
+
+        /* ========== SECTIONS ========== */
+        .section { padding: 90px 40px; position: relative; }
+        .section-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.35em; color: var(--gold); text-align: center; margin-bottom: 10px; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 2.6rem); font-weight: 700; text-align: center; color: var(--navy); margin-bottom: 14px; }
+        .section-rule { width: 70px; height: 3px; background: var(--gold); margin: 0 auto 55px; border-radius: 2px; }
+
+        #profil { background: var(--white); }
+        .profil-grid { display: flex; gap: 60px; max-width: 1150px; margin: 0 auto; align-items: center; flex-wrap: wrap; }
+        .profil-img { flex: 0 0 320px; border-radius: 20px; overflow: hidden; border: 3px solid var(--gold); box-shadow: var(--shadow-card); }
+        .profil-img img { width: 100%; height: auto; aspect-ratio: 3/4; object-fit: cover; }
+        .profil-text { flex: 1; min-width: 280px; }
+        .profil-text h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--navy); margin-bottom: 16px; }
+        .profil-text p { color: #444; margin-bottom: 14px; font-size: 0.95rem; line-height: 1.8; }
+        .stats { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 24px; }
+        .stat { background: var(--ivory); border: 1px solid var(--border-gold); padding: 14px 22px; border-radius: 12px; text-align: center; }
+        .stat-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--gold); display: block; }
+        .stat-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); }
+
+        #experience { background: var(--ivory); }
+        .timeline { max-width: 800px; margin: 0 auto; position: relative; padding-left: 45px; }
+        .timeline::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--gold), rgba(198,163,75,0.15)); }
+        .tl-item { position: relative; margin-bottom: 45px; padding-left: 30px; }
+        .tl-dot { position: absolute; left: -32px; top: 6px; width: 14px; height: 14px; background: var(--gold); border-radius: 50%; border: 3px solid var(--ivory); box-shadow: 0 0 0 4px rgba(198,163,75,0.25); }
+        .tl-date { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--gold); }
+        .tl-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); }
+        .tl-desc { font-size: 0.85rem; color: #555; }
+
+        #publications { background: var(--white); }
+        .pub-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; }
+        .pub-card { background: var(--ivory); border-radius: 16px; padding: 25px; border: 1px solid var(--border-gold); transition: all 0.3s; }
+        .pub-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-card); }
+        .pub-card h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--navy); margin-bottom: 8px; }
+        .pub-card .date { font-size: 0.7rem; color: var(--gold); text-transform: uppercase; }
+
+        #galerie { background: var(--navy); }
+        #galerie .section-title { color: var(--white); }
+        #galerie .section-rule { background: var(--gold-bright); }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
+        .gallery-item { border-radius: 14px; overflow: hidden; aspect-ratio: 1/1; border: 2px solid transparent; transition: 0.4s; cursor: pointer; }
+        .gallery-item:hover { border-color: var(--gold); transform: scale(1.03); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .gallery-item:hover img { transform: scale(1.08); }
+
+        #contact { background: var(--navy-deep); text-align: center; }
+        #contact .section-title { color: var(--white); }
+        .contact-links { display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; max-width: 600px; margin: 0 auto 20px; }
+        .contact-link { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-gold); padding: 13px 26px; border-radius: 50px; color: #ddd; text-decoration: none; font-weight: 500; font-size: 0.85rem; transition: 0.3s; }
+        .contact-link:hover { background: rgba(198,163,75,0.08); border-color: var(--gold); transform: translateY(-3px); }
+        .contact-icon { width: 34px; height: 34px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; color: var(--navy-deep); font-weight: 700; }
+        .email-link { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--gold-bright); text-decoration: none; }
+
+        footer { background: #020A12; text-align: center; padding: 25px; color: #777; font-size: 0.7rem; letter-spacing: 0.08em; border-top: 1px solid var(--border-gold); }
+        footer span { color: var(--gold); }
+
+        .reveal { opacity: 0; transform: translateY(45px); transition: opacity 0.8s, transform 0.8s var(--transition-royal); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.25s; } .delay-3 { transition-delay: 0.4s; }
+
+        @media (max-width: 1024px) {
+            .hero-container { flex-direction: column; text-align: center; gap: 45px; padding-top: 140px; }
+            .hero-portrait { width: 280px; height: 360px; }
+            .profil-grid { flex-direction: column; }
+            .profil-img { max-width: 300px; margin: 0 auto; }
+            .section { padding: 70px 20px; }
+            .timeline { padding-left: 35px; }
+            .timeline::before { left: 14px; }
+            .tl-dot { left: -26px; width: 12px; height: 12px; }
+        }
+        @media (max-width: 768px) {
+            nav { padding: 14px 25px; }
+            .nav-links { position: fixed; top: 0; right: -100%; width: 75%; max-width: 320px; height: 100vh; background: rgba(10,26,47,0.98); flex-direction: column; justify-content: center; gap: 2.8rem; transition: right 0.5s; z-index: 1050; border-left: 1px solid var(--border-gold); }
+            .nav-links.active { right: 0; }
+            .hamburger { display: flex; }
+            .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
+            .whatsapp-float svg { width: 30px; height: 30px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="loader">
+        <div class="loader-globe">
+            <div class="globe-ring"></div>
+            <div class="globe-meridian"></div>
+            <div class="globe-dot"></div>
+        </div>
+        <div class="loader-name">Kossidjin Martial Akouete</div>
+        <div class="loader-sub">Géopolitique • Diplomatie • Sécurité</div>
+    </div>
+
+    <a href="https://wa.me/2290199334520?text=Bonjour%20M.%20Akouete%2C%20je%20vous%20contacte%20depuis%20votre%20site%20web." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+    </a>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <nav id="navbar">
+        <a href="#hero" class="nav-logo">K.M. Akouete</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#profil" onclick="closeMenu()">Profil</a></li>
+            <li><a href="#experience" onclick="closeMenu()">Expérience</a></li>
+            <li><a href="#publications" onclick="closeMenu()">Publications</a></li>
+            <li><a href="#galerie" onclick="closeMenu()">Galerie</a></li>
+            <li><a href="#contact" class="nav-cta" onclick="closeMenu()">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
+
+    <section id="hero">
+        <div class="hero-pattern"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-container">
+            <div class="hero-portrait reveal">
+                <img src="1.jpeg" alt="Kossidjin Martial Akouete" loading="eager">
+                <div class="hero-badge">Major de promotion</div>
+            </div>
+            <div class="hero-text">
+                <p class="hero-pre">Abomey-Calavi, Bénin</p>
+                <h1 class="hero-title">Kossidjin Martial <span class="gold">Akouete</span></h1>
+                <p class="hero-sub">Analyste Géopolitique Junior • Diplomatie & Relations Internationales</p>
+                <p class="hero-desc">
+                    Spécialiste de la sécurité internationale, des dynamiques de conflits et de la négociation diplomatique.
+                    Plus de 50 analyses médiatiques et une ambition : conseiller les États et organisations internationales
+                    sur les défis stratégiques émergents.
+                </p>
+                <div class="hero-actions">
+                    <a href="#profil" class="btn-gold">Découvrir son parcours</a>
+                    <a href="#contact" class="btn-outline">Le contacter</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-hint"><span>Défiler</span><div class="scroll-line"></div></div>
+    </section>
+
+    <section id="profil" class="section">
+        <p class="section-label reveal">Qui est-il ?</p>
+        <h2 class="section-title reveal">Profil & Formation</h2>
+        <div class="section-rule reveal"></div>
+        <div class="profil-grid">
+            <div class="profil-img reveal delay-1"><img src="2.jpeg" alt="Portrait" loading="lazy"></div>
+            <div class="profil-text reveal delay-2">
+                <h3>L'excellence académique au service de la géopolitique</h3>
+                <p><strong>Kossidjin Martial Akouete</strong> est diplômé de l'École Nationale d'Administration du Bénin, où il a obtenu une Licence en Diplomatie et Relations Internationales en 2024. Il a été <strong>Major de sa promotion</strong> et récipiendaire des bourses d'excellence du gouvernement béninois et de la Fondation Vallet.</p>
+                <p>Analyste géopolitique junior, il intervient en freelance depuis 2024 et a déjà participé à plus de 50 émissions de radio et de télévision. Il maîtrise le français (langue maternelle) et l'anglais (niveau B2).</p>
+                <div class="stats">
+                    <div class="stat"><span class="stat-num">Major</span><span class="stat-label">Promotion 2024</span></div>
+                    <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Analyses médias</span></div>
+                    <div class="stat"><span class="stat-num">B2</span><span class="stat-label">Anglais</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <p class="section-label reveal">Parcours</p>
+        <h2 class="section-title reveal">Expériences & Simulations</h2>
+        <div class="section-rule reveal"></div>
+        <div class="timeline">
+            <div class="tl-item reveal"><div class="tl-dot"></div><div class="tl-date">2025</div><div class="tl-title">Research Assistant - MORGAN TRAINING</div><div class="tl-desc">Gestion du département Recherche et Géopolitique, production de rapports stratégiques.</div></div>
+            <div class="tl-item reveal"><div class="tl-dot"></div><div class="tl-date">2025</div><div class="tl-title">Meilleur Délégué - CIME 2025</div><div class="tl-desc">Chef de la délégation du Nigéria au Sommet de la CEDEAO.</div></div>
+            <div class="tl-item reveal"><div class="tl-dot"></div><div class="tl-date">2024</div><div class="tl-title">Stagiaire - Ministère des Affaires étrangères</div><div class="tl-desc">Protection consulaire et gouvernance migratoire.</div></div>
+            <div class="tl-item reveal"><div class="tl-dot"></div><div class="tl-date">2024</div><div class="tl-title">Meilleur Délégué & Meilleur Mémoire - COJED</div><div class="tl-desc">Ministre des Affaires étrangères de la Russie au Conseil de sécurité de l'ONU.</div></div>
+        </div>
+    </section>
+
+    <section id="publications" class="section">
+        <p class="section-label reveal">Analyses</p>
+        <h2 class="section-title reveal">Publications Récentes</h2>
+        <div class="section-rule reveal"></div>
+        <div class="pub-grid">
+            <div class="pub-card reveal"><h4>Adhésion de la Palestine à l'ONU</h4><p class="date">5 juin 2024</p><p>Les contours d'une question qui divise la communauté internationale.</p></div>
+            <div class="pub-card reveal"><h4>Offensive terrestre sur Rafah</h4><p class="date">2024</p><p>Analyse des implications stratégiques et humanitaires.</p></div>
+            <div class="pub-card reveal"><h4>L'opinion publique, nouvelle donne géopolitique</h4><p class="date">15 janv. 2024</p><p>Comment les perceptions citoyennes redessinent les équilibres mondiaux.</p></div>
+            <div class="pub-card reveal"><h4>Afrique de l'Ouest : crise de démocratie ou révolution ?</h4><p class="date">30 déc. 2023</p><p>Une lecture géopolitique des transitions en cours.</p></div>
+        </div>
+    </section>
+
+    <section id="galerie" class="section">
+        <p class="section-label reveal">Portfolio</p>
+        <h2 class="section-title reveal">Galerie</h2>
+        <div class="section-rule reveal"></div>
+        <div class="gallery-grid">
+            <div class="gallery-item reveal"><img src="1.jpeg" alt="Photo 1" loading="lazy"></div>
+            <div class="gallery-item reveal"><img src="2.jpeg" alt="Photo 2" loading="lazy"></div>
+            <div class="gallery-item reveal"><img src="3.jpeg" alt="Photo 3" loading="lazy"></div>
+            <div class="gallery-item reveal"><img src="4.jpeg" alt="Photo 4" loading="lazy"></div>
+            <div class="gallery-item reveal"><img src="5.jpeg" alt="Photo 5" loading="lazy"></div>
+            <div class="gallery-item reveal"><img src="6.jpeg" alt="Photo 6" loading="lazy"></div>
+            <div class="gallery-item reveal"><img src="7.jpeg" alt="Photo 7" loading="lazy"></div>
+            <div class="gallery-item reveal"><img src="8.jpeg" alt="Photo 8" loading="lazy"></div>
+            <div class="gallery-item reveal"><img src="9.jpeg" alt="Photo 9" loading="lazy"></div>
+            <div class="gallery-item reveal"><img src="10.jpeg" alt="Photo 10" loading="lazy"></div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <p class="section-label reveal">Échangeons</p>
+        <h2 class="section-title reveal">Contact</h2>
+        <div class="section-rule reveal"></div>
+        <div class="contact-links reveal delay-1">
+            <a href="mailto:martialakouete68@gmail.com" class="contact-link"><span class="contact-icon">✉️</span> martialakouete68@gmail.com</a>
+            <a href="https://wa.me/2290199334520?text=Bonjour%20M.%20Akouete%2C%20je%20vous%20contacte%20depuis%20votre%20site%20web." target="_blank" class="contact-link"><span class="contact-icon">📱</span> +229 01 99 33 45 20</a>
+        </div>
+        <a href="mailto:martialakouete68@gmail.com" class="email-link reveal delay-2">martialakouete68@gmail.com</a>
+    </section>
+
+    <footer><p>© 2026 <span>Kossidjin Martial Akouete</span> — Analyste Géopolitique. Abomey-Calavi, Bénin.</p></footer>
+
+    <script>
+        (function() {
+            const loader = document.getElementById('loader');
+            window.addEventListener('load', () => {
+                setTimeout(() => { loader.classList.add('hidden'); document.body.style.overflow = ''; }, 2100);
+            });
+            if (document.readyState === 'complete') {
+                setTimeout(() => { loader.classList.add('hidden'); document.body.style.overflow = ''; }, 1900);
+            }
+            document.body.style.overflow = 'hidden';
+
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
+
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            const overlay = document.getElementById('menuOverlay');
+            const openMenu = () => { navLinks.classList.add('active'); hamburger.classList.add('active'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; };
+            const closeMenu = () => { navLinks.classList.remove('active'); hamburger.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = ''; };
+            hamburger.addEventListener('click', () => navLinks.classList.contains('active') ? closeMenu() : openMenu());
+            overlay.addEventListener('click', closeMenu);
+            window.closeMenu = closeMenu;
+
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+            reveals.forEach(el => observer.observe(el));
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        const offset = navbar.offsetHeight + 20;
+                        window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
