@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil & Formation | Kossidjin Martial Akouete</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0A1A2F;--navy-light:#0F2544;--navy-deep:#050F1C;--gold:#C6A34B;--gold-bright:#E0C87C;--gold-pale:#F2E5C9;--ivory:#FCFAF6;--white:#FFF;--text-dark:#1A1A1A;--text-muted:#6B7280;--border-gold:rgba(198,163,75,.25);--shadow-gold:0 15px 35px rgba(198,163,75,.3);--shadow-card:0 25px 50px -12px rgba(0,0,0,.25);--tr:cubic-bezier(.4,0,.2,1);--wa:#25D366}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;background:var(--ivory);color:var(--text-dark);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+#loader{position:fixed;inset:0;background:var(--navy-deep);z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .8s,visibility .8s}
+#loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.loader-globe{width:80px;height:80px;position:relative;margin-bottom:25px}
+.globe-ring{position:absolute;inset:0;border:2px solid rgba(198,163,75,.3);border-radius:50%;animation:spin 10s linear infinite}
+.globe-meridian{position:absolute;width:80%;height:80%;top:10%;left:10%;border:2px dashed var(--gold);border-radius:50%;animation:spin 15s linear infinite reverse;opacity:.7}
+.globe-dot{position:absolute;top:50%;left:50%;width:8px;height:8px;background:var(--gold);border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 20px var(--gold)}
+@keyframes spin{100%{transform:rotate(360deg)}}
+.loader-name{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold-bright);letter-spacing:.08em}
+.loader-sub{font-size:.7rem;text-transform:uppercase;letter-spacing:.35em;color:rgba(198,163,75,.6);margin-top:8px}
+
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:14px 50px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,26,47,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-gold);transition:all .4s var(--tr)}
+nav.scrolled{padding:10px 50px;background:rgba(10,26,47,.95);box-shadow:0 4px 30px rgba(0,0,0,.4)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 0 15px rgba(198,163,75,.3)}
+.nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;color:rgba(255,255,255,.85);font-size:.78rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;position:relative;padding-bottom:4px;transition:color .3s}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--gold);transition:width .3s}
+.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-cta{background:var(--gold);color:var(--navy-deep)!important;padding:9px 20px;border-radius:50px;font-weight:700!important;font-size:.72rem!important;transition:all .35s}
+.nav-cta:hover{background:var(--gold-bright);transform:translateY(-2px);box-shadow:var(--shadow-gold)}
+.nav-cta::after{display:none!important}
+.hamburger{display:none;flex-direction:column;gap:6px;cursor:pointer;background:none;border:none;z-index:1100}
+.hamburger span{width:28px;height:2.5px;background:var(--gold);display:block;transition:.35s;border-radius:2px}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(6px,6px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
+.menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1040;opacity:0;visibility:hidden;transition:.4s}
+.menu-overlay.active{opacity:1;visibility:visible}
+
+/* PAGE HEADER */
+.page-header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%);padding:150px 40px 70px;text-align:center;position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;inset:0;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" opacity="0.04"><circle cx="100" cy="100" r="80" stroke="%23C6A34B" stroke-width="0.8"/><path d="M20 100 L180 100 M100 20 L100 180" stroke="%23C6A34B" stroke-width="0.5"/></svg>');background-size:150px 150px}
+.page-header h1{font-family:'Playfair Display',serif;color:var(--white);font-size:clamp(2rem,4vw,2.8rem);font-weight:800;position:relative;z-index:2;margin-bottom:10px}
+.page-header p{color:var(--gold-pale);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;position:relative;z-index:2}
+.breadcrumb{position:relative;z-index:2;font-size:.7rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.2em;margin-bottom:14px}
+.breadcrumb a{color:var(--gold);text-decoration:none}
+
+.section{padding:80px 40px;max-width:1100px;margin:0 auto}
+.profil-hero{display:flex;gap:60px;align-items:center;flex-wrap:wrap;background:var(--white);border-radius:20px;padding:45px;box-shadow:var(--shadow-card);border:1px solid var(--border-gold);margin-top:-40px;position:relative;z-index:5}
+.profil-hero-img{flex:0 0 280px;border-radius:16px;overflow:hidden;border:3px solid var(--gold)}
+.profil-hero-img img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;display:block}
+.profil-hero-text{flex:1;min-width:280px}
+.profil-hero-text h2{font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--navy);margin-bottom:14px;line-height:1.2}
+.profil-hero-text .tag{font-size:.75rem;color:var(--gold);text-transform:uppercase;letter-spacing:.2em;margin-bottom:8px}
+.stats{display:flex;gap:16px;flex-wrap:wrap;margin-top:22px}
+.stat{background:var(--ivory);border:1px solid var(--border-gold);padding:14px 20px;border-radius:12px;text-align:center;flex:1;min-width:120px}
+.stat-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:800;color:var(--gold);display:block}
+.stat-label{font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted)}
+
+.article-body{background:var(--white);padding:55px 60px;border-radius:20px;border:1px solid var(--border-gold);box-shadow:0 10px 40px rgba(0,0,0,.05);margin-top:35px}
+.article-body p{font-size:.98rem;line-height:1.9;color:#333;margin-bottom:22px}
+.article-body p:first-of-type::first-letter{font-family:'Playfair Display',serif;font-size:3.4rem;float:left;line-height:.9;padding:6px 12px 0 0;color:var(--gold);font-weight:800}
+.article-body strong{color:var(--navy);font-weight:600}
+
+.quote-block{background:linear-gradient(135deg,rgba(198,163,75,.08),rgba(198,163,75,.03));border-left:4px solid var(--gold);padding:26px 32px;border-radius:0 12px 12px 0;margin:35px 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--navy);line-height:1.6}
+
+.ambition-box{background:var(--navy);color:var(--white);padding:40px;border-radius:16px;text-align:center;margin-top:35px;border:1px solid var(--border-gold)}
+.ambition-box .label{font-size:.68rem;text-transform:uppercase;letter-spacing:.3em;color:var(--gold);margin-bottom:14px}
+.ambition-box p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;line-height:1.6;color:rgba(255,255,255,.92)}
+
+.cta-next{text-align:center;margin-top:45px}
+.btn-gold{background:var(--gold);color:var(--navy-deep);padding:14px 32px;border-radius:50px;font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:all .35s;display:inline-block}
+.btn-gold:hover{background:var(--gold-bright);transform:translateY(-3px);box-shadow:var(--shadow-gold)}
+
+footer{background:#020A12;text-align:center;padding:26px;color:#777;font-size:.72rem;letter-spacing:.08em;border-top:1px solid var(--border-gold)}
+footer span{color:var(--gold)}
+
+.whatsapp-float{position:fixed;bottom:30px;right:30px;width:60px;height:60px;background:var(--wa);border-radius:50%;box-shadow:0 8px 25px rgba(0,0,0,.4);z-index:9998;display:flex;align-items:center;justify-content:center;text-decoration:none}
+.whatsapp-float svg{width:32px;height:32px;fill:#fff}
+
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .8s,transform .8s var(--tr)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  .profil-hero{flex-direction:column;text-align:center;padding:30px 20px}
+  .profil-hero-text .tag,.profil-hero-text h2{text-align:center}
+  .stats{justify-content:center}
+  .article-body{padding:35px 25px}
+  .article-body p:first-of-type::first-letter{font-size:2.6rem}
+}
+@media(max-width:768px){
+  nav{padding:12px 20px}
+  .nav-links{position:fixed;top:0;right:-100%;width:75%;max-width:320px;height:100vh;background:rgba(10,26,47,.98);flex-direction:column;justify-content:center;gap:2.5rem;transition:right .5s;z-index:1050;border-left:1px solid var(--border-gold)}
+  .nav-links.active{right:0}
+  .hamburger{display:flex}
+  .section{padding:60px 20px}
+  .page-header{padding:130px 20px 60px}
+}
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-globe"><div class="globe-ring"></div><div class="globe-meridian"></div><div class="globe-dot"></div></div>
+  <div class="loader-name">Kossidjin Martial Akouete</div>
+  <div class="loader-sub">Profil & Formation</div>
+</div>
+
+<a href="https://wa.me/2290199334520" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+</a>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><img src="pp.jpeg" alt="K.M. Akouete"></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="profil.html" class="active">Profil</a></li>
+    <li><a href="parcours.html">Parcours</a></li>
+    <li><a href="analyses.html">Analyses</a></li>
+    <li><a href="actualites.html">Actualités</a></li>
+    <li><a href="galerie.html">Galerie</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<header class="page-header">
+  <div class="breadcrumb"><a href="index.html">Accueil</a> / Profil</div>
+  <h1>Profil &amp; Formation</h1>
+  <p>L'excellence académique au service de la géopolitique</p>
+</header>
+
+<div class="section">
+  <div class="profil-hero reveal">
+    <div class="profil-hero-img"><img src="pp.jpeg" alt="Kossidjin Martial Akouete"></div>
+    <div class="profil-hero-text">
+      <p class="tag">Analyste géopolitique</p>
+      <h2>Kossidjin Martial Akouete</h2>
+      <p style="color:#555;font-size:.95rem;line-height:1.8">Profil émergent dans la sphère des relations internationales, spécialisé dans les questions de paix et de sécurité internationales.</p>
+      <div class="stats">
+        <div class="stat"><span class="stat-num">Major</span><span class="stat-label">ENA Bénin 2024</span></div>
+        <div class="stat"><span class="stat-num">60+</span><span class="stat-label">Interventions médias</span></div>
+        <div class="stat"><span class="stat-num">10+</span><span class="stat-label">Articles publiés</span></div>
+      </div>
+    </div>
+  </div>
+
+  <article class="article-body reveal">
+    <p><strong>Kossidjin Martial AKOUETE</strong> est un profil émergent dans la sphère des relations internationales, spécialisé dans les questions de paix et de sécurité internationales. Passionné très tôt par l'histoire du monde, les rapports entre les peuples et les sociétés, les grandes mutations de l'humanité, il a fait de la rigueur et du travail les bases d'un parcours qu'il construit avec méthode.</p>
+
+    <p>Formé à l'École Nationale d'Administration du Bénin, filière Diplomatie et Relations internationales, il en sort <strong>major de promotion</strong>. Cette formation, nourrie par les échanges avec ses professeurs et ses pairs, l'amène à approfondir sa lecture des grandes dynamiques mondiales, des conflits armés au terrorisme, en passant par les crises humanitaires et les cybermenaces.</p>
+
+    <div class="quote-block">
+      De cette analyse naît une conviction claire : les États et les organisations internationales ont besoin d'esprits capables d'anticiper les crises et d'éclairer la décision par une compréhension fine des enjeux. C'est cette conviction qui oriente aujourd'hui son engagement, tourné vers la prévention et la résolution des crises par des approches concrètes et durables.
+    </div>
+
+    <p>Depuis 2024, cet engagement se traduit dans les faits. Martial AKOUETE compte plus de <strong>soixante interventions médiatiques</strong> consacrées au décryptage de l'actualité internationale et une <strong>dizaine d'articles</strong> sur la géopolitique et la sécurité. Il a également pris part à plusieurs simulations d'organisations internationales, où se travaillent l'analyse et la négociation, et a effectué une expérience au <strong>ministère des Affaires étrangères du Bénin</strong>, confrontant sa formation aux réalités de la diplomatie.</p>
+
+    <p>Ce parcours, encore en construction, dessine déjà les contours d'un profil solide et rigoureux. Martial AKOUETE poursuit son ambition avec constance : mettre son analyse au service de la paix et de la sécurité internationales, aux côtés des gouvernements et des organisations qui en portent la responsabilité.</p>
+  </article>
+
+  <div class="ambition-box reveal">
+    <div class="label">Ambition</div>
+    <p>Accompagner gouvernements et organisations internationales dans la prévention et la résolution des crises, par des approches constructives et durables.</p>
+  </div>
+
+  <div class="cta-next reveal">
+    <a href="parcours.html" class="btn-gold">Découvrir son parcours →</a>
+  </div>
+</div>
+
+<footer><p>© 2026 <span>Kossidjin Martial Akouete</span> — Analyste géopolitique &amp; Paix et Sécurité internationales.</p></footer>
+
+<script>
+(function(){
+  const loader=document.getElementById('loader');
+  const hide=()=>{loader.classList.add('hidden');document.body.style.overflow=''};
+  document.body.style.overflow='hidden';
+  window.addEventListener('load',()=>setTimeout(hide,900));
+  setTimeout(hide,2000);
+
+  const navbar=document.getElementById('navbar');
+  window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>40));
+
+  const ham=document.getElementById('hamburger'),nav=document.getElementById('navLinks'),ov=document.getElementById('menuOverlay');
+  const open=()=>{nav.classList.add('active');ham.classList.add('active');ov.classList.add('active');document.body.style.overflow='hidden'};
+  const close=()=>{nav.classList.remove('active');ham.classList.remove('active');ov.classList.remove('active');document.body.style.overflow=''};
+  ham.addEventListener('click',()=>nav.classList.contains('active')?close():open());
+  ov.addEventListener('click',close);
+
+  const obs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+})();
+</script>
+</body>
+</html>
