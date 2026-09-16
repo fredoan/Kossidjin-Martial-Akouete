@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analyses & Interventions | Kossidjin Martial Akouete</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0A1A2F;--navy-light:#0F2544;--navy-deep:#050F1C;--gold:#C6A34B;--gold-bright:#E0C87C;--gold-pale:#F2E5C9;--ivory:#FCFAF6;--white:#FFF;--text-dark:#1A1A1A;--text-muted:#6B7280;--border-gold:rgba(198,163,75,.25);--shadow-gold:0 15px 35px rgba(198,163,75,.3);--shadow-card:0 25px 50px -12px rgba(0,0,0,.25);--tr:cubic-bezier(.4,0,.2,1);--wa:#25D366}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;background:var(--ivory);color:var(--text-dark);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+#loader{position:fixed;inset:0;background:var(--navy-deep);z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .8s,visibility .8s}
+#loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.loader-globe{width:80px;height:80px;position:relative;margin-bottom:25px}
+.globe-ring{position:absolute;inset:0;border:2px solid rgba(198,163,75,.3);border-radius:50%;animation:spin 10s linear infinite}
+.globe-meridian{position:absolute;width:80%;height:80%;top:10%;left:10%;border:2px dashed var(--gold);border-radius:50%;animation:spin 15s linear infinite reverse;opacity:.7}
+.globe-dot{position:absolute;top:50%;left:50%;width:8px;height:8px;background:var(--gold);border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 20px var(--gold)}
+@keyframes spin{100%{transform:rotate(360deg)}}
+.loader-name{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold-bright);letter-spacing:.08em}
+.loader-sub{font-size:.7rem;text-transform:uppercase;letter-spacing:.35em;color:rgba(198,163,75,.6);margin-top:8px}
+
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:14px 50px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,26,47,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-gold);transition:all .4s var(--tr)}
+nav.scrolled{padding:10px 50px;background:rgba(10,26,47,.95);box-shadow:0 4px 30px rgba(0,0,0,.4)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 0 15px rgba(198,163,75,.3)}
+.nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;color:rgba(255,255,255,.85);font-size:.78rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;position:relative;padding-bottom:4px;transition:color .3s}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--gold);transition:width .3s}
+.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-cta{background:var(--gold);color:var(--navy-deep)!important;padding:9px 20px;border-radius:50px;font-weight:700!important;font-size:.72rem!important;transition:all .35s}
+.nav-cta:hover{background:var(--gold-bright);transform:translateY(-2px);box-shadow:var(--shadow-gold)}
+.nav-cta::after{display:none!important}
+.hamburger{display:none;flex-direction:column;gap:6px;cursor:pointer;background:none;border:none;z-index:1100}
+.hamburger span{width:28px;height:2.5px;background:var(--gold);display:block;transition:.35s;border-radius:2px}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(6px,6px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
+.menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1040;opacity:0;visibility:hidden;transition:.4s}
+.menu-overlay.active{opacity:1;visibility:visible}
+
+.page-header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%);padding:150px 40px 70px;text-align:center;position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;inset:0;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" opacity="0.04"><circle cx="100" cy="100" r="80" stroke="%23C6A34B" stroke-width="0.8"/><path d="M20 100 L180 100 M100 20 L100 180" stroke="%23C6A34B" stroke-width="0.5"/></svg>');background-size:150px 150px}
+.page-header h1{font-family:'Playfair Display',serif;color:var(--white);font-size:clamp(2rem,4vw,2.8rem);font-weight:800;position:relative;z-index:2;margin-bottom:10px}
+.page-header p{color:var(--gold-pale);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;position:relative;z-index:2}
+.breadcrumb{position:relative;z-index:2;font-size:.7rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.2em;margin-bottom:14px}
+.breadcrumb a{color:var(--gold);text-decoration:none}
+
+.section{padding:60px 40px;max-width:1300px;margin:0 auto}
+
+.filters{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:40px}
+.filter-btn{background:var(--white);border:1px solid var(--border-gold);color:var(--navy);padding:9px 22px;border-radius:50px;font-family:inherit;font-size:.78rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.filter-btn:hover{border-color:var(--gold);color:var(--gold)}
+.filter-btn.active{background:var(--gold);color:var(--navy-deep);border-color:var(--gold);box-shadow:0 5px 15px rgba(198,163,75,.35)}
+
+.count-info{text-align:center;color:var(--text-muted);font-size:.85rem;margin-bottom:30px}
+.count-info strong{color:var(--gold);font-family:'Playfair Display',serif;font-size:1.1rem}
+
+.analyses-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:26px}
+
+.ana-card{background:var(--white);border-radius:14px;overflow:hidden;border:1px solid var(--border-gold);cursor:pointer;transition:all .35s;position:relative}
+.ana-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-card);border-color:var(--gold)}
+.ana-thumb{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
+.ana-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.ana-card:hover .ana-thumb img{transform:scale(1.06)}
+.ana-play{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.55));display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
+.ana-card:hover .ana-play{opacity:1}
+.ana-play svg{width:64px;height:64px;filter:drop-shadow(0 4px 10px rgba(0,0,0,.5))}
+.ana-badge{position:absolute;top:12px;left:12px;background:rgba(10,26,47,.85);color:var(--gold);padding:5px 12px;border-radius:50px;font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;backdrop-filter:blur(6px);border:1px solid var(--border-gold)}
+.ana-body{padding:18px 20px 22px}
+.ana-date{font-size:.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:.15em;font-weight:600;margin-bottom:8px}
+.ana-title{font-family:'Playfair Display',serif;font-size:1.02rem;font-weight:700;color:var(--navy);line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ana-actions{display:flex;gap:10px;margin-top:16px;align-items:center;justify-content:space-between}
+.ana-link{font-size:.72rem;color:var(--gold);text-decoration:none;font-weight:600;text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;gap:6px;transition:color .3s}
+.ana-link:hover{color:var(--gold-bright)}
+.ana-embed-btn{background:transparent;border:1px solid var(--border-gold);color:var(--text-muted);padding:6px 14px;border-radius:50px;font-family:inherit;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.ana-embed-btn:hover{background:var(--gold);color:var(--navy-deep);border-color:var(--gold)}
+
+.no-results{text-align:center;padding:60px 20px;color:var(--text-muted);font-style:italic}
+
+/* MODAL EMBED */
+.modal{position:fixed;inset:0;background:rgba(2,10,18,.95);z-index:10000;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px)}
+.modal.open{display:flex;animation:fadeIn .3s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal-inner{position:relative;width:100%;max-width:1000px;background:#000;border-radius:12px;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,.6);border:1px solid var(--border-gold)}
+.modal-video{position:relative;padding-bottom:56.25%;height:0}
+.modal-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.modal-close{position:absolute;top:-50px;right:0;background:var(--gold);color:var(--navy-deep);border:none;width:40px;height:40px;border-radius:50%;font-size:1.4rem;font-weight:700;cursor:pointer;line-height:1;display:flex;align-items:center;justify-content:center;transition:all .3s;font-family:inherit}
+.modal-close:hover{background:var(--gold-bright);transform:rotate(90deg)}
+
+footer{background:#020A12;text-align:center;padding:26px;color:#777;font-size:.72rem;letter-spacing:.08em;border-top:1px solid var(--border-gold);margin-top:60px}
+footer span{color:var(--gold)}
+
+.whatsapp-float{position:fixed;bottom:30px;right:30px;width:60px;height:60px;background:var(--wa);border-radius:50%;box-shadow:0 8px 25px rgba(0,0,0,.4);z-index:9998;display:flex;align-items:center;justify-content:center;text-decoration:none}
+.whatsapp-float svg{width:32px;height:32px;fill:#fff}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s var(--tr)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  nav{padding:12px 20px}
+  .nav-links{position:fixed;top:0;right:-100%;width:75%;max-width:320px;height:100vh;background:rgba(10,26,47,.98);flex-direction:column;justify-content:center;gap:2.2rem;transition:right .5s;z-index:1050;border-left:1px solid var(--border-gold)}
+  .nav-links.active{right:0}
+  .hamburger{display:flex}
+  .section{padding:40px 20px}
+  .page-header{padding:130px 20px 50px}
+  .modal-close{top:8px;right:8px}
+}
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-globe"><div class="globe-ring"></div><div class="globe-meridian"></div><div class="globe-dot"></div></div>
+  <div class="loader-name">Kossidjin Martial Akouete</div>
+  <div class="loader-sub">Analyses & Interventions</div>
+</div>
+
+<a href="https://wa.me/2290199334520" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+</a>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><img src="pp.jpeg" alt="K.M. Akouete"></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="profil.html">Profil</a></li>
+    <li><a href="parcours.html">Parcours</a></li>
+    <li><a href="analyses.html" class="active">Analyses</a></li>
+    <li><a href="actualites.html">Actualités</a></li>
+    <li><a href="galerie.html">Galerie</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<header class="page-header">
+  <div class="breadcrumb"><a href="index.html">Accueil</a> / Analyses</div>
+  <h1>Analyses &amp; Interventions</h1>
+  <p>Émissions télévisées, radiophoniques et publications</p>
+</header>
+
+<section class="section">
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">Tout</button>
+    <button class="filter-btn" data-filter="TV">Télévision</button>
+    <button class="filter-btn" data-filter="Radio">Radio / Articles</button>
+    <button class="filter-btn" data-filter="2026">2026</button>
+    <button class="filter-btn" data-filter="2025">2025</button>
+    <button class="filter-btn" data-filter="2024">2024</button>
+  </div>
+  <div class="count-info"><strong id="countNum">0</strong> interventions référencées</div>
+  <div class="analyses-grid" id="grid"></div>
+</section>
+
+<div class="modal" id="videoModal">
+  <div class="modal-inner">
+    <button class="modal-close" id="modalClose" aria-label="Fermer">×</button>
+    <div class="modal-video"><iframe id="modalFrame" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+  </div>
+</div>
+
+<footer><p>© 2026 <span>Kossidjin Martial Akouete</span> — Analyste géopolitique &amp; Paix et Sécurité internationales.</p></footer>
+
+<script>
+(function(){
+  // ============= DONNÉES DÉDOUBLONNÉES & TRIÉES (décroissant) =============
+  const DATA = [
+    // 2026
+    {date:'2026-09-07', id:'0HwTKLrPhKg', type:'TV', title:'Émission TV — 07 sept. 2026'},
+    {date:'2026-09-07', id:'t83G1lWS_LI', type:'TV', title:'Émission TV — 07 sept. 2026'},
+    {date:'2026-08-31', id:'8uVh7woOk8g', type:'TV', title:'Émission TV — 31 août 2026'},
+    {date:'2026-08-24', id:'udG5tN72OM8', type:'TV', title:'Émission TV — 24 août 2026'},
+    {date:'2026-08-18', id:'x1Bi2-MEsiE', type:'TV', title:'Émission TV — 18 août 2026'},
+    {date:'2026-08-10', id:'QX89L2RfEBU', type:'TV', title:'Émission TV — 10 août 2026'},
+    {date:'2026-07-20', id:'fOgzjIWWA90', type:'TV', title:'Émission TV — 20 juil. 2026'},
+    {date:'2026-07-06', id:'0BEULNKWMqc', type:'TV', title:'Émission TV — 06 juil. 2026'},
+    {date:'2026-06-22', id:'2saZvqU1e6M', type:'TV', title:'Émission TV — 22 juin 2026'},
+    {date:'2026-06-15', id:'3y3Oz_21VQ4', type:'TV', title:'Émission TV — 15 juin 2026'},
+    {date:'2026-06-11', id:'dDKJb3IonJs', type:'TV', title:'Émission TV — 11 juin 2026'},
+    {date:'2026-06-08', id:'i7qxfle_IBU', type:'TV', title:'Émission TV — 08 juin 2026'},
+    {date:'2026-05-18', id:'brze1j-vOmM', type:'TV', title:'Émission TV — 18 mai 2026'},
+    {date:'2026-05-11', id:'93UlObgYsbc', type:'TV', title:'Émission TV — 11 mai 2026'},
+    {date:'2026-04-20', id:'Qk4afu8qrrc', type:'TV', title:'Émission TV — 20 avr. 2026'},
+    {date:'2026-04-13', id:'y5Kne-LcJYo', type:'TV', title:'Émission TV — 13 avr. 2026'},
+    {date:'2026-03-23', id:'u3B8-s8X3FY', type:'TV', title:'Émission TV — 23 mars 2026'},
+    {date:'2026-03-09', id:'SLISCcRuZj4', type:'TV', title:'Émission TV — 09 mars 2026'},
+    {date:'2026-02-02', id:'kjZQahYEiLM', type:'TV', title:'Émission TV — 02 fév. 2026'},
+    {date:'2026-01-14', id:'yRf2dKoDeGY', type:'TV', title:'Émission TV — 14 janv. 2026'},
+    // 2025
+    {date:'2025-12-15', id:'zzkA-z5Ww0Q', type:'TV', title:'Émission TV — 15 déc. 2025'},
+    {date:'2025-12-06', id:'l-8xXIpDp-E', type:'TV', title:'Émission TV — 06 déc. 2025'},
+    {date:'2025-11-24', id:'NxEyZvcHPb8', type:'TV', title:'Émission TV — 24 nov. 2025'},
+    {date:'2025-11-10', id:'zNKZ0Zx5iTA', type:'TV', title:'Émission TV — 10 nov. 2025'},
+    {date:'2025-11-03', id:'-E80VgdiFi8', type:'TV', title:'Émission TV — 03 nov. 2025'},
+    {date:'2025-09-22', id:'leLtQc90wFM', type:'TV', title:'Émission TV — 22 sept. 2025'},
+    {date:'2025-09-08', id:'z19Pv0mcnV4', type:'TV', title:'Émission TV — 08 sept. 2025'},
+    {date:'2025-08-11', id:'R2dhIyT-VTA', type:'TV', title:'Émission TV — 11 août 2025'},
+    {date:'2025-08-04', id:'AnY2CctOuL8', type:'TV', title:'Émission TV — 04 août 2025'},
+    {date:'2025-06-30', id:'n7UTlUAaS6Y', type:'TV', title:'Émission TV — 30 juin 2025'},
+    {date:'2025-05-26', id:'PYOp5QLM72g', type:'TV', title:'Émission TV — 26 mai 2025'},
+    {date:'2025-05-05', id:'uGrIbBVzfxQ', type:'TV', title:'Émission TV — 05 mai 2025'},
+    {date:'2025-04-14', id:'gr7gQsPUcLs', type:'TV', title:'Émission TV — 14 avr. 2025'},
+    {date:'2025-03-24', id:'J5c6pN5hbAc', type:'TV', title:'Émission TV — 24 mars 2025'},
+    {date:'2025-03-10', id:'ji7VU3WeGxA', type:'TV', title:'Émission TV — 10 mars 2025'},
+    {date:'2025-03-02', id:'ecB7DJGy7l4', type:'TV', title:'Émission TV — 02 mars 2025'},
+    {date:'2025-02-03', id:'WRcC0nNymQs', type:'TV', title:'Émission TV — 03 fév. 2025'},
+    {date:'2025-02-03', id:'xSmz2bnWvPY', type:'TV', title:'Émission TV — 03 fév. 2025'},
+    {date:'2025-01-27', id:'W_1qjw849sc', type:'TV', title:'Émission TV — 27 janv. 2025'},
+    {date:'2025-01-26', id:'0vEhXgyPVkM', type:'TV', title:'Émission TV — 26 janv. 2025'},
+    {date:'2025-01-20', id:'-ZxazcozK_E', type:'TV', title:'Émission TV — 20 janv. 2025'},
+    {date:'2025-01-12', id:'8GX4Gc-IyCs', type:'TV', title:'Émission TV — 12 janv. 2025'},
+    // 2024
+    {date:'2024-12-30', id:'w3dozwkjLfQ', type:'TV', title:'Émission TV — 30 déc. 2024'},
+    {date:'2024-12-09', id:'dG0ecoUmw8k', type:'TV', title:'Émission TV — 09 déc. 2024'},
+    {date:'2024-11-25', id:'gzTNfTfSZeY', type:'TV', title:'Émission TV — 25 nov. 2024'},
+    {date:'2024-11-18', id:'UHo_FbxnIzY', type:'TV', title:'Émission TV — 18 nov. 2024'},
+    {date:'2024-10-28', id:'9JqZpJQciF8', type:'TV', title:'Émission TV — 28 oct. 2024'},
+    {date:'2024-10-21', id:'5IGelG_PZiE', type:'TV', title:'Émission TV — 21 oct. 2024'},
+    {date:'2024-10-07', id:'eTEqTROTC5s', type:'TV', title:'Émission TV — 07 oct. 2024'},
+    {date:'2024-08-19', id:'OXhJ8PZh7ck', type:'TV', title:'Émission TV — 19 août 2024'},
+    {date:'2024-08-12', id:'Xk7FUfOZjsU', type:'TV', title:'Émission TV — 12 août 2024'},
+    {date:'2024-07-29', id:'lssVGSs52LM', type:'TV', title:'Émission TV — 29 juil. 2024'},
+    {date:'2024-06-24', id:'hGBONlU7k0k', type:'TV', title:'Émission TV — 24 juin 2024'},
+    {date:'2024-06-10', id:'TmCx8vMc2q4', type:'TV', title:'Émission TV — 10 juin 2024'},
+    {date:'2024-06-03', id:'jPUnBfdcg8w', type:'TV', title:'Émission TV — 03 juin 2024'},
+    {date:'2024-05-27', id:'hdMP-x6Msag', type:'TV', title:'Émission TV — 27 mai 2024'},
+    // Radio / Articles (LinkedIn)
+    {date:'2026-01-01', url:'https://www.linkedin.com/posts/research-geopolitics_67%C3%A8me-sommet-ordinaire-des-chefs-detat-et-activity-', type:'Radio', title:"67ᵉ Sommet ordinaire des Chefs d'État et de Gouvernement"},
+    {date:'2026-01-01', url:'https://www.linkedin.com/posts/research-geopolitics_est-ce-que-ladoption-dun-r%C3%A9gime-parlementaire-activity-', type:'Radio', title:"L'adoption d'un régime parlementaire"}
+  ];
+
+  // Trie décroissant
+  DATA.sort((a,b)=> b.date.localeCompare(a.date));
+
+  const grid = document.getElementById('grid');
+  const countNum = document.getElementById('countNum');
+  const modal = document.getElementById('videoModal');
+  const frame = document.getElementById('modalFrame');
+  const modalClose = document.getElementById('modalClose');
+
+  function fmtDate(iso){
+    const d = new Date(iso);
+    return d.toLocaleDateString('fr-FR',{day:'2-digit',month:'long',year:'numeric'});
+  }
+
+  function ytThumb(id){ return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`; }
+
+  function render(filter){
+    grid.innerHTML='';
+    let items = DATA;
+    if(filter === 'TV' || filter === 'Radio') items = DATA.filter(x=>x.type===filter);
+    else if(['2024','2025','2026'].includes(filter)) items = DATA.filter(x=>x.date.startsWith(filter));
+
+    countNum.textContent = items.length;
+
+    if(items.length === 0){
+      grid.innerHTML = '<div class="no-results">Aucune intervention pour ce filtre.</div>';
+      return;
+    }
+
+    items.forEach((item, i) => {
+      const card = document.createElement('div');
+      card.className='ana-card reveal';
+
+      if(item.id){
+        card.innerHTML = `
+          <div class="ana-thumb">
+            <img src="${ytThumb(item.id)}" alt="${item.title}" loading="lazy" onerror="this.src='pp.jpeg'">
+            <span class="ana-badge">${item.type}</span>
+            <div class="ana-play">
+              <svg viewBox="0 0 24 24" fill="#C6A34B"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="ana-body">
+            <div class="ana-date">${fmtDate(item.date)}</div>
+            <div class="ana-title">${item.title}</div>
+            <div class="ana-actions">
+              <a class="ana-link" href="https://youtu.be/${item.id}" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                YouTube
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7z"/></svg>
+              </a>
+              <button class="ana-embed-btn" data-embed="${item.id}">▶ Lire ici</button>
+            </div>
+          </div>`;
+        card.querySelector('.ana-thumb').addEventListener('click', () => openModal(item.id));
+      } else {
+        card.innerHTML = `
+          <div class="ana-thumb" style="background:linear-gradient(135deg,#0A1A2F,#0F2544);display:flex;align-items:center;justify-content:center">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="#C6A34B"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8 14H7v-2h4v2m0-4H7v-2h4v2m0-4H7V7h4v2m6 8h-4v-2h4v2m0-4h-4v-2h4v2m0-4h-4V7h4v2z"/></svg>
+            <span class="ana-badge">${item.type}</span>
+          </div>
+          <div class="ana-body">
+            <div class="ana-date">${fmtDate(item.date)}</div>
+            <div class="ana-title">${item.title}</div>
+            <div class="ana-actions">
+              <a class="ana-link" href="${item.url}" target="_blank" rel="noopener">Lire sur LinkedIn
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7z"/></svg>
+              </a>
+            </div>
+          </div>`;
+      }
+      grid.appendChild(card);
+    });
+
+    // Bind embed buttons
+    grid.querySelectorAll('[data-embed]').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{ e.stopPropagation(); openModal(btn.dataset.embed); });
+    });
+
+    // Reveal animations
+    const obs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+    grid.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  }
+
+  function openModal(id){
+    frame.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+    modal.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function closeModal(){
+    frame.src='';
+    modal.classList.remove('open');
+    document.body.style.overflow='';
+  }
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click',(e)=>{ if(e.target===modal) closeModal(); });
+  document.addEventListener('keydown',(e)=>{ if(e.key==='Escape' && modal.classList.contains('open')) closeModal(); });
+
+  // Filtres
+  document.querySelectorAll('.filter-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      render(btn.dataset.filter);
+    });
+  });
+
+  // Loader + nav
+  const loader=document.getElementById('loader');
+  const hide=()=>{loader.classList.add('hidden');document.body.style.overflow=''};
+  document.body.style.overflow='hidden';
+  window.addEventListener('load',()=>setTimeout(hide,700));
+  setTimeout(hide,1800);
+
+  const navbar=document.getElementById('navbar');
+  window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>40));
+
+  const ham=document.getElementById('hamburger'),nav=document.getElementById('navLinks'),ov=document.getElementById('menuOverlay');
+  const open=()=>{nav.classList.add('active');ham.classList.add('active');ov.classList.add('active');document.body.style.overflow='hidden'};
+  const closeM=()=>{nav.classList.remove('active');ham.classList.remove('active');ov.classList.remove('active');document.body.style.overflow=''};
+  ham.addEventListener('click',()=>nav.classList.contains('active')?closeM():open());
+  ov.addEventListener('click',closeM);
+
+  // Init
+  render('all');
+})();
+</script>
+</body>
+</html>
