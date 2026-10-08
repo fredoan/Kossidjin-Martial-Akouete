@@ -153,6 +153,7 @@ footer span{color:var(--gold)}
     <button class="filter-btn" data-filter="2026">2026</button>
     <button class="filter-btn" data-filter="2025">2025</button>
     <button class="filter-btn" data-filter="2024">2024</button>
+    <button class="filter-btn" data-filter="2023">2023</button>
   </div>
   <div class="count-info"><strong id="countNum">0</strong> interventions référencées</div>
   <div class="analyses-grid" id="grid"></div>
@@ -230,9 +231,26 @@ footer span{color:var(--gold)}
     {date:'2024-06-10', id:'TmCx8vMc2q4', type:'TV', title:'Émission TV — 10 juin 2024'},
     {date:'2024-06-03', id:'jPUnBfdcg8w', type:'TV', title:'Émission TV — 03 juin 2024'},
     {date:'2024-05-27', id:'hdMP-x6Msag', type:'TV', title:'Émission TV — 27 mai 2024'},
-    // Radio / Articles (LinkedIn)
+
+    // ============ Radio / Articles (LinkedIn) — originaux ============
     {date:'2026-01-01', url:'https://www.linkedin.com/posts/research-geopolitics_67%C3%A8me-sommet-ordinaire-des-chefs-detat-et-activity-', type:'Radio', title:"67ᵉ Sommet ordinaire des Chefs d'État et de Gouvernement"},
-    {date:'2026-01-01', url:'https://www.linkedin.com/posts/research-geopolitics_est-ce-que-ladoption-dun-r%C3%A9gime-parlementaire-activity-', type:'Radio', title:"L'adoption d'un régime parlementaire"}
+    {date:'2026-01-01', url:'https://www.linkedin.com/posts/research-geopolitics_est-ce-que-ladoption-dun-r%C3%A9gime-parlementaire-activity-', type:'Radio', title:"L'adoption d'un régime parlementaire"},
+
+    // ============ NOUVEAUX AJOUTS (client — 29/09) ============
+    // Articles Pulse LinkedIn
+    {date:'2024-09-15', url:'https://www.linkedin.com/pulse/que-retenir-du-retour-de-lex%C3%A9cutif-nord-irlandais-xgaze', type:'Radio', title:"Que retenir du retour de l'exécutif nord-irlandais au Royaume-Uni ?"},
+    {date:'2024-09-15', url:'https://www.linkedin.com/pulse/tenants-et-aboutissants-de-laccusation-sud-africaine-wqpef', type:'Radio', title:"Tenants et aboutissants de l'accusation sud-africaine à l'endroit d'Israël pour crime de génocide"},
+    {date:'2024-09-15', url:'https://www.linkedin.com/pulse/afrique-de-louest-en-crise-d%C3%A9mocratie-ou-r%C3%A9volution-d3ine', type:'Radio', title:"Afrique de l'Ouest en crise de démocratie ou révolution ?"},
+
+    // Posts LinkedIn (dates estimées depuis l'ID d'activité)
+    {date:'2024-07-15', url:'https://www.linkedin.com/posts/research-geopolitics_une-analyse-dune-relation-qui-semble-r%C3%A9sister-activity-7221061066342961153-g-VD', type:'Radio', title:"Une analyse d'une relation qui semble résister"},
+    {date:'2024-06-19', url:'https://www.linkedin.com/posts/research-geopolitics_la-complexit%C3%A9-de-la-question-palestinienne-activity-7204238411145097217-b0dH', type:'Radio', title:"La complexité de la question palestinienne"},
+    {date:'2024-04-10', url:'https://www.linkedin.com/posts/research-geopolitics_menace-doffensive-%C3%A0-rafah-par-isra%C3%ABl-faites-activity-7181554363310469120-ecv-', type:'Radio', title:"Menace d'offensive à Rafah par Israël"},
+    {date:'2024-03-09', url:'https://www.linkedin.com/posts/research-geopolitics_comment-peut-on-analyser-la-port%C3%A9e-des-d%C3%A9clarations-activity-7171448849952141312-L_i3', type:'Radio', title:"Comment peut-on analyser la portée des déclarations ?"},
+    {date:'2024-01-20', url:'https://www.linkedin.com/posts/research-geopolitics_activity-7152768420046860289-io90', type:'Radio', title:"Publication LinkedIn — 20 janv. 2024"},
+    {date:'2024-01-16', url:'https://www.linkedin.com/posts/research-geopolitics_activity-7151096316641628160-sDcy', type:'Radio', title:"Publication LinkedIn — 16 janv. 2024"},
+    {date:'2023-12-17', url:'https://www.linkedin.com/posts/research-geopolitics_activity-7144271032432951296-XLFC', type:'Radio', title:"Publication LinkedIn — 17 déc. 2023"},
+    {date:'2023-12-16', url:'https://www.linkedin.com/posts/research-geopolitics_activity-7143944074859880448-NpnG', type:'Radio', title:"Publication LinkedIn — 16 déc. 2023"}
   ];
 
   // Trie décroissant
@@ -255,7 +273,7 @@ footer span{color:var(--gold)}
     grid.innerHTML='';
     let items = DATA;
     if(filter === 'TV' || filter === 'Radio') items = DATA.filter(x=>x.type===filter);
-    else if(['2024','2025','2026'].includes(filter)) items = DATA.filter(x=>x.date.startsWith(filter));
+    else if(['2023','2024','2025','2026'].includes(filter)) items = DATA.filter(x=>x.date.startsWith(filter));
 
     countNum.textContent = items.length;
 
