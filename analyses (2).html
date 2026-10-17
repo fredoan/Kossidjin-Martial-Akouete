@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Analyses géopolitiques et interventions de Kossidjin Martial Akouete — Paix et Sécurité, gouvernance et politique internationale.">
+<meta name="author" content="Kossidjin Martial Akouete">
+<title>Analyses | Kossidjin Martial Akouete</title>
+<link rel="icon" type="image/jpeg" href="pp.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--fond:#3d0000;--fond-2:#4a0505;--fond-3:#560a0a;--fond-4:#2b0000;--fond-5:#1a0000;--or:#b8922e;--or-clair:#d4af5a;--or-vif:#e8c869;--or-fonce:#8a6a1f;--rouge:#8b0000;--rouge-vif:#c0392b;--texte:#f7f2e9;--texte-2:#e6dccb;--texte-3:#b8a691;--border-or:rgba(212,175,90,.24);--border-or-fort:rgba(212,175,90,.5);--border-subtil:rgba(212,175,90,.10);--damier:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23d4af5a'%3E%3Crect x='0' y='0' width='20' height='20'/%3E%3Crect x='40' y='0' width='20' height='20'/%3E%3Crect x='20' y='20' width='20' height='20'/%3E%3Crect x='60' y='20' width='20' height='20'/%3E%3Crect x='0' y='40' width='20' height='20'/%3E%3Crect x='40' y='40' width='20' height='20'/%3E%3Crect x='20' y='60' width='20' height='20'/%3E%3Crect x='60' y='60' width='20' height='20'/%3E%3C/g%3E%3C/svg%3E");--f-display:'Cinzel',Georgia,serif;--f-serif:'Cormorant Garamond',Georgia,serif;--f-sans:'Lato',system-ui,sans-serif;--f-mono:'JetBrains Mono',monospace;--ease:cubic-bezier(.4,0,.2,1);--ease-out:cubic-bezier(.16,1,.3,1);--nav-h:76px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--fond);background-image:radial-gradient(ellipse 120% 80% at 50% -10%,#610c0c 0%,var(--fond) 45%,var(--fond-4) 100%);background-attachment:fixed;color:var(--texte-2);font-family:var(--f-sans);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.075;background-image:var(--damier);background-size:80px 80px;animation:derive 120s linear infinite}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.045;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E")}
+@keyframes derive{to{background-position:160px 80px}}
+main,footer{position:relative;z-index:2}
+a{color:inherit;text-decoration:none}button,input{font:inherit}button{color:inherit;background:none;border:0;cursor:pointer}h1,h2,h3{font-family:var(--f-display);color:var(--texte);line-height:1.2}strong{color:var(--or-clair)}
+/* Curseur + barre */
+.curseur,.curseur-point{position:fixed;top:0;left:0;pointer-events:none;z-index:99998;border-radius:50%;transform:translate(-50%,-50%)}.curseur{width:34px;height:34px;border:1px solid var(--or-clair);transition:.35s}.curseur-point{width:4px;height:4px;background:var(--or-clair);z-index:99999}.curseur.hover{width:68px;height:68px;background:rgba(212,175,90,.12);border-color:var(--or-vif)}@media(max-width:1024px),(hover:none){.curseur,.curseur-point{display:none}}
+.barre-lecture{position:fixed;top:0;left:0;right:0;height:3px;z-index:9997}.barre-lecture-fill{height:100%;width:0;background:linear-gradient(90deg,var(--or),var(--or-vif));box-shadow:0 0 12px rgba(212,175,90,.6)}
+/* Loader */
+.loader{position:fixed;inset:0;z-index:99999;background:var(--fond-4);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;transition:opacity 1s var(--ease-out),visibility 1s var(--ease-out)}.loader.cache{opacity:0;visibility:hidden;pointer-events:none}.loader::before{content:'';position:absolute;inset:0;opacity:.08;background-image:var(--damier);background-size:80px 80px}.loader-cadre{position:relative;width:180px;height:180px;display:flex;align-items:center;justify-content:center;margin-bottom:24px}.loader-monogramme{font-family:var(--f-display);font-weight:900;font-size:76px;color:var(--or-clair);text-shadow:0 0 40px rgba(212,175,90,.5),3px 3px 0 var(--rouge),6px 6px 0 var(--rouge-vif);animation:pulseM 2.4s ease-in-out infinite}.loader-cercle{position:absolute;inset:0;border:1.5px solid rgba(212,175,90,.4);border-radius:50%;animation:tourne 8s linear infinite}.loader-cercle::before{content:'';position:absolute;width:6px;height:6px;background:var(--or-vif);border-radius:50%;top:-3px;left:50%;transform:translateX(-50%);box-shadow:0 0 12px var(--or-vif)}@keyframes pulseM{0%,100%{transform:scale(.98);opacity:.85}50%{transform:scale(1.04);opacity:1}}@keyframes tourne{to{transform:rotate(360deg)}}.loader-titre{font-family:var(--f-display);font-size:.9rem;color:var(--or-clair);letter-spacing:.3em;text-transform:uppercase;margin-bottom:2rem;text-align:center}.loader-jauge{width:min(200px,60vw);height:1px;background:rgba(212,175,90,.15)}.loader-jauge-fill{height:100%;width:0;background:linear-gradient(90deg,var(--rouge-vif),var(--or-clair));animation:charge 1.6s var(--ease-out) forwards}@keyframes charge{to{width:100%}}
+/* Navigation */
+nav#navbar{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 clamp(16px,4vw,48px);height:var(--nav-h);background:rgba(61,0,0,0);border-bottom:1px solid transparent;transition:.4s}nav#navbar.scrolled{background:rgba(26,0,0,.93);backdrop-filter:blur(20px) saturate(180%);border-bottom-color:var(--border-or);box-shadow:0 4px 30px rgba(0,0,0,.5)}.nav-logo{display:flex;align-items:center;gap:12px;font-family:var(--f-display);font-size:.9rem;font-weight:700;letter-spacing:.14em;color:var(--or-clair);white-space:nowrap}.nav-logo-img{width:42px;height:42px;border-radius:50%;object-fit:cover;object-position:top center;border:1.5px solid var(--or-clair);box-shadow:0 0 0 3px rgba(212,175,90,.12)}.nav-links{display:flex;align-items:center;gap:clamp(8px,1.4vw,22px);list-style:none}.nav-links a{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--texte-3);padding:8px 4px;position:relative;white-space:nowrap;transition:color .3s}.nav-links a:hover,.nav-links a.active{color:var(--or-clair)}.nav-links a.active::after{content:'';position:absolute;bottom:2px;left:4px;right:4px;height:2px;background:var(--or-clair)}.nav-links a.nav-cta{font-family:var(--f-display);padding:11px 20px;background:var(--or-clair);color:var(--fond-5);border-radius:3px}.hamburger{display:none;flex-direction:column;gap:5px;width:40px;padding:10px 6px}.hamburger span{display:block;height:2px;background:var(--or-clair)}.mobile-menu{display:none;position:fixed;inset:0;z-index:1100;background:rgba(26,0,0,.985);flex-direction:column;align-items:center;justify-content:center;gap:25px}.mobile-menu.open{display:flex}.mobile-menu a{font-family:var(--f-display);font-size:1.2rem;letter-spacing:.2em;text-transform:uppercase;color:var(--texte-2)}.mobile-menu a.current{color:var(--or-clair)}.close-menu{position:absolute;top:18px;right:5%;font-size:2.4rem;color:var(--or-clair)}
+/* Général */
+.section-pad{padding:clamp(55px,8vw,95px) 5%}.frise-bogolan{height:34px;border-block:1px solid var(--border-or);background:rgba(26,0,0,.6);position:relative;z-index:2;overflow:hidden}.frise-bogolan::before{content:'';position:absolute;inset:0;background-image:var(--damier);background-size:68px 68px;opacity:.35}.section-header{text-align:center;margin-bottom:45px}.section-tag{display:inline-flex;align-items:center;gap:12px;font-family:var(--f-serif);font-style:italic;font-size:1.1rem;color:var(--or-clair);margin-bottom:12px}.section-tag::before,.section-tag::after{content:'';width:28px;height:1px;background:var(--or-clair)}.section-title{font-size:clamp(1.7rem,4vw,2.8rem)}.section-title span{color:var(--or-clair)}.section-line{width:120px;height:12px;margin:20px auto 0;background:linear-gradient(90deg,transparent,var(--or-clair),transparent)}.btn-primary,.btn-secondary{display:inline-flex;align-items:center;justify-content:center;font-family:var(--f-display);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;padding:13px 26px;border-radius:3px;font-weight:700;transition:.3s}.btn-primary{background:var(--or-clair);color:var(--fond-5)}.btn-primary:hover{background:var(--or-vif);transform:translateY(-3px)}.btn-secondary{border:1.5px solid var(--or-clair);color:var(--or-clair)}.btn-secondary:hover{background:var(--or-clair);color:var(--fond-5);transform:translateY(-3px)}.reveal{opacity:0;transform:translateY(30px);transition:.8s var(--ease-out)}.reveal.visible{opacity:1;transform:none}
+/* En-tête */
+.page-hero{padding:150px 5% 70px;text-align:center;position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(86,10,10,.72),rgba(43,0,0,.55))}.page-hero::before{content:'';position:absolute;inset:0;background-image:var(--damier);background-size:80px 80px;opacity:.08}.breadcrumb{position:relative;z-index:2;font-family:var(--f-mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.2em;color:var(--texte-3);margin-bottom:15px}.breadcrumb a{color:var(--or-clair)}.page-hero h1{position:relative;z-index:2;font-size:clamp(2rem,5vw,3.4rem);margin-bottom:12px}.page-hero p{position:relative;z-index:2;font-family:var(--f-serif);font-style:italic;color:var(--or-clair);font-size:1.2rem}
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1050px;margin:0 auto 45px}.stat{background:rgba(26,0,0,.55);border:1px solid var(--border-or);padding:24px 15px;text-align:center;border-radius:5px}.stat strong{display:block;font-family:var(--f-display);font-size:2rem;color:var(--or-clair)}.stat span{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--texte-3)}
+/* Filters/search */
+.tool-panel{max-width:1100px;margin:0 auto 35px;padding:25px;background:rgba(26,0,0,.5);border:1px solid var(--border-or);border-radius:5px}.filter-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:16px}.filter-btn{padding:9px 15px;border:1px solid var(--border-or);border-radius:3px;color:var(--texte-2);font-family:var(--f-display);font-size:.63rem;letter-spacing:.08em;text-transform:uppercase}.filter-btn:hover,.filter-btn.active{background:var(--or-clair);color:var(--fond-5);border-color:var(--or-clair)}.search-wrap{max-width:650px;margin:0 auto;position:relative}.search-wrap input{width:100%;padding:13px 16px;background:rgba(61,0,0,.8);border:1px solid var(--border-or);border-radius:3px;color:var(--texte);outline:none}.search-wrap input:focus{border-color:var(--or-clair);box-shadow:0 0 0 2px rgba(212,175,90,.08)}.count-info{text-align:center;color:var(--texte-3);font-size:.8rem;margin:20px 0 30px}.count-info strong{font-family:var(--f-display);font-size:1.15rem}
+/* Analyse cards */
+.analyses-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;max-width:1200px;margin:0 auto}.analysis-card{background:rgba(26,0,0,.58);border:1px solid var(--border-or);border-radius:5px;padding:22px;min-height:210px;display:flex;flex-direction:column;transition:.35s}.analysis-card:hover{transform:translateY(-5px);border-color:var(--or-clair);box-shadow:0 15px 35px rgba(0,0,0,.35)}.analysis-meta{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:15px}.analysis-year,.analysis-cat{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--or-vif)}.analysis-cat{color:var(--texte-3);text-align:right}.analysis-number{font-family:var(--f-display);color:var(--or-fonce);font-size:1.3rem;margin-bottom:7px}.analysis-title{font-family:var(--f-display);font-size:1rem;color:var(--texte);line-height:1.45;flex:1}.analysis-footer{margin-top:18px;padding-top:12px;border-top:1px solid var(--border-subtil);font-size:.7rem;color:var(--texte-3)}
+/* Interventions existantes */
+#interventions{background:linear-gradient(180deg,rgba(86,10,10,.38),rgba(26,0,0,.72))}.interventions-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:1200px;margin:0 auto}.intervention-card{background:rgba(26,0,0,.58);border:1px solid var(--border-or);border-radius:5px;overflow:hidden;transition:.35s}.intervention-card:hover{transform:translateY(-5px);border-color:var(--or-clair)}.ana-thumb{position:relative;aspect-ratio:16/9;background:#160000;overflow:hidden}.ana-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.intervention-card:hover .ana-thumb img{transform:scale(1.05)}.ana-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,transparent 35%,rgba(26,0,0,.7));opacity:0;transition:.3s}.intervention-card:hover .ana-play{opacity:1}.ana-badge{position:absolute;top:10px;left:10px;background:rgba(26,0,0,.88);color:var(--or-clair);padding:5px 10px;font-family:var(--f-mono);font-size:.58rem;border:1px solid var(--border-or);text-transform:uppercase}.ana-body{padding:17px}.ana-date{font-family:var(--f-mono);font-size:.62rem;color:var(--or-clair);text-transform:uppercase;margin-bottom:7px}.ana-title{font-family:var(--f-display);font-size:.95rem;color:var(--texte);line-height:1.4}.ana-actions{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:15px}.ana-link{font-family:var(--f-display);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--or-clair)}.ana-embed-btn{padding:7px 11px;border:1px solid var(--border-or);color:var(--texte-3);border-radius:3px;font-size:.62rem;text-transform:uppercase}.ana-embed-btn:hover{background:var(--or-clair);color:var(--fond-5);border-color:var(--or-clair)}
+/* Modal */
+.modal{position:fixed;inset:0;background:rgba(10,0,0,.94);z-index:10000;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px)}.modal.open{display:flex}.modal-inner{position:relative;width:100%;max-width:1000px;background:#000;border:1px solid var(--border-or)}.modal-video{position:relative;padding-bottom:56.25%;height:0}.modal-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.modal-close{position:absolute;top:-48px;right:0;background:var(--or-clair);color:var(--fond-5);width:40px;height:40px;border-radius:50%;font-size:1.4rem;z-index:2}.modal-close:hover{background:var(--or-vif);transform:rotate(90deg)}
+/* Footer/floating */
+footer{background:var(--fond-5);border-top:1px solid var(--border-or);padding:50px 5%;text-align:center;position:relative;overflow:hidden}footer::before{content:'';position:absolute;inset:0;opacity:.07;background-image:var(--damier)}footer>*{position:relative;z-index:2}.footer-logo{font-family:var(--f-display);color:var(--or-clair);letter-spacing:.1em;margin-bottom:10px}.footer-tagline{font-family:var(--f-serif);font-style:italic;color:var(--texte-3);margin-bottom:20px}.footer-nav{display:flex;gap:12px 24px;justify-content:center;flex-wrap:wrap;list-style:none}.footer-nav a{font-family:var(--f-display);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--texte-2)}.footer-nav a:hover{color:var(--or-clair)}.footer-credit{font-size:.72rem;color:var(--texte-3);margin-top:22px}.whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:998;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.5);animation:pulseWa 2.8s ease-in-out infinite}.whatsapp-float svg{width:30px;height:30px;fill:#fff}@keyframes pulseWa{50%{box-shadow:0 4px 25px rgba(37,211,102,.7),0 0 0 8px rgba(37,211,102,.12)}}
+.no-results{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--texte-3);font-family:var(--f-serif);font-style:italic}
+@media(max-width:1080px){.nav-links{display:none}.hamburger{display:flex}}@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}.page-hero{padding:130px 5% 55px}.section-pad{padding-inline:20px}.nav-logo span{display:none}.analysis-card{min-height:190px}}@media(max-width:480px){.stats{grid-template-columns:1fr 1fr}.stat strong{font-size:1.6rem}.filter-row{justify-content:flex-start}.filter-btn{flex:1 1 auto}}
+</style>
+</head>
+<body>
+<a href="#contenu" class="skip-link" style="position:absolute;left:-9999px">Aller au contenu</a>
+<div class="loader" id="loader" aria-hidden="true"><div class="loader-cadre"><div class="loader-cercle"></div><div class="loader-monogramme">KMA</div></div><div class="loader-titre">ANALYSES</div><div class="loader-jauge"><div class="loader-jauge-fill"></div></div></div>
+<div class="barre-lecture"><div class="barre-lecture-fill" id="barreLecture"></div></div><div class="curseur" id="curseur"></div><div class="curseur-point" id="curseurPoint"></div>
+<nav id="navbar" aria-label="Navigation principale"><a href="index.html" class="nav-logo"><img src="pp.jpeg" alt="K.M. Akouete" class="nav-logo-img"><span>K. M. AKOUETE</span></a><ul class="nav-links"><li><a href="index.html">Accueil</a></li><li><a href="profil.html">Profil</a></li><li><a href="parcours.html">Parcours</a></li><li><a href="analyses.html" class="active">Analyses</a></li><li><a href="actualites.html">Actualités</a></li><li><a href="galerie.html">Galerie</a></li><li><a href="contact.html" class="nav-cta">Contact</a></li></ul><button class="hamburger" id="menuBtn" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button></nav>
+<div class="mobile-menu" id="mobileMenu"><button class="close-menu" id="closeMenu">×</button><a href="index.html">Accueil</a><a href="profil.html">Profil</a><a href="parcours.html">Parcours</a><a href="analyses.html" class="current">Analyses</a><a href="actualites.html">Actualités</a><a href="galerie.html">Galerie</a><a href="contact.html">Contact</a></div>
+<a href="https://wa.me/2290199334520" target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966- .916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg></a>
+<main id="contenu">
+<header class="page-hero"><div class="breadcrumb"><a href="index.html">Accueil</a> / Analyses</div><h1>Analyses &amp; Interventions</h1><p>Réflexions géopolitiques, Paix &amp; Sécurité, gouvernance et interventions médiatiques</p></header>
+<div class="frise-bogolan"></div>
+<section class="section-pad">
+<div class="section-header reveal"><span class="section-tag">Depuis 2024</span><h2 class="section-title">Un corpus de <span>176 analyses</span></h2><div class="section-line"></div></div>
+<div class="stats reveal"><div class="stat"><strong>176</strong><span>Analyses</span></div><div class="stat"><strong>91</strong><span>Paix &amp; Sécurité</span></div><div class="stat"><strong>85</strong><span>Gouvernance / Politique</span></div><div class="stat"><strong>3</strong><span>Années couvertes</span></div></div>
+<div class="tool-panel reveal"><div class="filter-row" id="analysisFilters"><button class="filter-btn active" data-filter="all">Toutes</button><button class="filter-btn" data-filter="P&S">Paix &amp; Sécurité</button><button class="filter-btn" data-filter="GIPI">Gouvernance / Politique</button><button class="filter-btn" data-filter="2024">2024</button><button class="filter-btn" data-filter="2025">2025</button><button class="filter-btn" data-filter="2026">2026</button></div><div class="search-wrap"><input id="analysisSearch" type="search" placeholder="Rechercher un pays, une crise, un sujet…" aria-label="Rechercher une analyse"></div></div>
+<div class="count-info"><strong id="analysisCount">176</strong> analyses affichées</div><div class="analyses-grid" id="analysisGrid"></div>
+</section>
+<div class="frise-bogolan"></div>
+<section id="interventions" class="section-pad">
+<div class="section-header reveal"><span class="section-tag">Présence médiatique</span><h2 class="section-title">Interventions &amp; <span>publications</span></h2><div class="section-line"></div></div>
+<div class="tool-panel reveal"><div class="filter-row" id="interventionFilters"><button class="filter-btn active" data-filter="all">Tout</button><button class="filter-btn" data-filter="TV">Télévision</button><button class="filter-btn" data-filter="Radio">Radio / Articles</button><button class="filter-btn" data-filter="2026">2026</button><button class="filter-btn" data-filter="2025">2025</button><button class="filter-btn" data-filter="2024">2024</button><button class="filter-btn" data-filter="2023">2023</button></div></div>
+<div class="count-info"><strong id="countNum">0</strong> interventions référencées</div><div class="interventions-grid" id="grid"></div>
+</section>
+</main>
+<div class="modal" id="videoModal"><div class="modal-inner"><button class="modal-close" id="modalClose">×</button><div class="modal-video"><iframe id="modalFrame" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div></div></div>
+<footer><div class="footer-logo">KOSSIDJIN MARTIAL AKOUETE</div><p class="footer-tagline">Analyste géopolitique &amp; Paix et Sécurité internationales · Bénin 🇧🇯</p><ul class="footer-nav"><li><a href="index.html">Accueil</a></li><li><a href="profil.html">Profil</a></li><li><a href="parcours.html">Parcours</a></li><li><a href="analyses.html">Analyses</a></li><li><a href="actualites.html">Actualités</a></li><li><a href="galerie.html">Galerie</a></li><li><a href="contact.html">Contact</a></li></ul><p class="footer-credit">© 2026 Kossidjin Martial Akouete — Tous droits réservés.</p></footer>
+<script>
+const ANALYSES = [
+    {"global":1,"year":2024,"category":"Paix & Sécurité","number":1,"title":"Liban — frappes israéliennes sur le sud du pays"},
+    {"global":2,"year":2024,"category":"Paix & Sécurité","number":2,"title":"Syrie — chute de Bachar el-Assad"},
+    {"global":3,"year":2024,"category":"Paix & Sécurité","number":3,"title":"Russie — guerre en Ukraine à « caractère mondial » (Poutine)"},
+    {"global":4,"year":2024,"category":"Paix & Sécurité","number":4,"title":"Israël — souveraineté en Judée-Samarie annoncée par Smotrich"},
+    {"global":5,"year":2024,"category":"Paix & Sécurité","number":5,"title":"Russie — présence de soldats nord-coréens dans la guerre russo-ukrainienne"},
+    {"global":6,"year":2024,"category":"Paix & Sécurité","number":6,"title":"Iran — bombardements israéliens, devoir de se défendre"},
+    {"global":7,"year":2024,"category":"Paix & Sécurité","number":7,"title":"Taïwan — exercices à munitions réelles de Pékin"},
+    {"global":8,"year":2024,"category":"Paix & Sécurité","number":8,"title":"Gaza — Yahya Sinwar, chef du Hamas, tué par Israël"},
+    {"global":9,"year":2024,"category":"Paix & Sécurité","number":9,"title":"Un an après l'attaque du 7 octobre 2023 — peut-on parler de paix ?"},
+    {"global":10,"year":2024,"category":"Paix & Sécurité","number":10,"title":"Russie — régime antiterroriste du Kremlin face à l'incursion ukrainienne"},
+    {"global":11,"year":2024,"category":"Paix & Sécurité","number":11,"title":"Qatar — enquête sur les morts causées par les frappes israéliennes"},
+    {"global":12,"year":2024,"category":"Paix & Sécurité","number":12,"title":"Union européenne — 1,5 milliard d'euros débloqués pour l'Ukraine (avoirs russes gelés)"},
+    {"global":13,"year":2024,"category":"Paix & Sécurité","number":13,"title":"Moyen-Orient — accord Hamas–Fatah signé sous égide chinoise"},
+    {"global":14,"year":2024,"category":"Paix & Sécurité","number":14,"title":"Chypre — modération face aux menaces du Hezbollah"},
+    {"global":15,"year":2024,"category":"Paix & Sécurité","number":15,"title":"Israël — Netanyahu accuse les États-Unis d'entraver la livraison d'armes"},
+    {"global":16,"year":2024,"category":"Paix & Sécurité","number":16,"title":"Mer de Chine méridionale — altercation marins philippins/gardes-côtes chinois"},
+    {"global":17,"year":2024,"category":"Paix & Sécurité","number":17,"title":"Ukraine — Kiev évalue le soutien militaire annoncé par Paris"},
+    {"global":18,"year":2024,"category":"Paix & Sécurité","number":18,"title":"Liban — situation explosive entre le Hezbollah et Israël"},
+    {"global":19,"year":2024,"category":"Paix & Sécurité","number":19,"title":"Cuba — quatre navires russes dont un sous-marin nucléaire à La Havane"},
+    {"global":20,"year":2024,"category":"Paix & Sécurité","number":20,"title":"Chine — Xi Jinping appelle à une conférence de paix pour Gaza"},
+    {"global":21,"year":2025,"category":"Paix & Sécurité","number":1,"title":"Corée du Nord — Pyongyang reconnaît la mort de soldats engagés en Russie"},
+    {"global":22,"year":2025,"category":"Paix & Sécurité","number":2,"title":"Ukraine — Zelensky adopte une posture diplomatique modérée face aux pressions américaines"},
+    {"global":23,"year":2025,"category":"Paix & Sécurité","number":3,"title":"Hongrie — exemption obtenue de Washington sur les sanctions liées au pétrole russe"},
+    {"global":24,"year":2025,"category":"Paix & Sécurité","number":4,"title":"Turquie — mandats d'arrêt contre Netanyahu pour génocide"},
+    {"global":25,"year":2025,"category":"Paix & Sécurité","number":5,"title":"Chine — mise en service du troisième porte-avions"},
+    {"global":26,"year":2025,"category":"Paix & Sécurité","number":6,"title":"Sahara occidental — plan marocain soutenu par le Conseil de sécurité de l'ONU"},
+    {"global":27,"year":2025,"category":"Paix & Sécurité","number":7,"title":"Russie — reprise des vols militaires vers la Syrie"},
+    {"global":28,"year":2025,"category":"Paix & Sécurité","number":8,"title":"Taïwan — augmentation du budget de la défense contestée par l'opposition"},
+    {"global":29,"year":2025,"category":"Paix & Sécurité","number":9,"title":"Russie — équilibrisme de Moscou dans le conflit israélo-palestinien"},
+    {"global":30,"year":2025,"category":"Paix & Sécurité","number":10,"title":"ONU — dix pays reconnaissent officiellement l'État palestinien"},
+    {"global":31,"year":2025,"category":"Paix & Sécurité","number":11,"title":"Taïwan — aide militaire majeure de Taipei bloquée par Trump"},
+    {"global":32,"year":2025,"category":"Paix & Sécurité","number":12,"title":"Russie — « toute force occidentale en Ukraine est une cible » (Poutine)"},
+    {"global":33,"year":2025,"category":"Paix & Sécurité","number":13,"title":"Chine — défilé militaire du 3 septembre : « la Chine est inarrêtable » (Xi)"},
+    {"global":34,"year":2025,"category":"Paix & Sécurité","number":14,"title":"États-Unis — le Pentagone renommé « ministère de la Guerre »"},
+    {"global":35,"year":2025,"category":"Paix & Sécurité","number":15,"title":"Arménie vs Azerbaïdjan — cessation définitive du conflit annoncée par Trump"},
+    {"global":36,"year":2025,"category":"Paix & Sécurité","number":16,"title":"États-Unis — déploiement de deux sous-marins nucléaires (déclarations russes provocatrices)"},
+    {"global":37,"year":2025,"category":"Paix & Sécurité","number":17,"title":"RDC vs Rwanda — accord de paix historique à Washington"},
+    {"global":38,"year":2025,"category":"Paix & Sécurité","number":18,"title":"Chine — la guerre Israël–Iran comme occasion d'asseoir son influence régionale"},
+    {"global":39,"year":2025,"category":"Paix & Sécurité","number":19,"title":"France — conférence de l'ONU pour une nouvelle solution au conflit israélo-palestinien"},
+    {"global":40,"year":2025,"category":"Paix & Sécurité","number":20,"title":"Chine vs Philippines — nouvel accrochage entre garde-côtes et navire"},
+    {"global":41,"year":2025,"category":"Paix & Sécurité","number":21,"title":"Sahel — provenance des armes utilisées par les groupes djihadistes"},
+    {"global":42,"year":2025,"category":"Paix & Sécurité","number":22,"title":"Europe — recherche d'un plan de sécurité pour l'Ukraine par les alliés"},
+    {"global":43,"year":2025,"category":"Paix & Sécurité","number":23,"title":"Iran vs États-Unis — crainte israélienne d'un accord au rabais sur le nucléaire"},
+    {"global":44,"year":2025,"category":"Paix & Sécurité","number":24,"title":"Taïwan — un capitaine chinois inculpé pour sectionnement de câble sous-marin"},
+    {"global":45,"year":2025,"category":"Paix & Sécurité","number":25,"title":"Togo — avancée des groupes djihadistes dans l'extrême nord"},
+    {"global":46,"year":2025,"category":"Paix & Sécurité","number":26,"title":"Israël — limogeage du chef du Shin Bet, grève générale annoncée"},
+    {"global":47,"year":2025,"category":"Paix & Sécurité","number":27,"title":"Syrie — massacres de civils alaouites confirmés"},
+    {"global":48,"year":2025,"category":"Paix & Sécurité","number":28,"title":"Soudan — absence ou inefficacité de la communauté internationale dans la crise"},
+    {"global":49,"year":2025,"category":"Paix & Sécurité","number":29,"title":"RDC — silence de la communauté internationale sur le conflit à l'Est"},
+    {"global":50,"year":2025,"category":"Paix & Sécurité","number":30,"title":"Israël vs Hamas — mort confirmée du chef de la branche armée"},
+    {"global":51,"year":2025,"category":"Paix & Sécurité","number":31,"title":"OTAN — le financement de l'Alliance au cœur des débats avec le retour de Trump"},
+    {"global":52,"year":2025,"category":"Paix & Sécurité","number":32,"title":"Somalie — nouvelle mission de l'Union africaine approuvée par l'ONU"},
+    {"global":53,"year":2025,"category":"Paix & Sécurité","number":33,"title":"RDC — Tshisekedi demande des sanctions contre Kigali"},
+    {"global":54,"year":2025,"category":"Paix & Sécurité","number":34,"title":"Russie — accord stratégique Moscou–Téhéran"},
+    {"global":55,"year":2025,"category":"Paix & Sécurité","number":35,"title":"Moyen-Orient — trêve à Gaza et libération des otages"},
+    {"global":56,"year":2025,"category":"Paix & Sécurité","number":36,"title":"Soudan — médiation d'Erdogan pour une solution à la crise"},
+    {"global":57,"year":2026,"category":"Paix & Sécurité","number":1,"title":"Accord tripartite de défense Arabie saoudite–Pakistan–Turquie : craintes d'Israël"},
+    {"global":58,"year":2026,"category":"Paix & Sécurité","number":2,"title":"Russie — Poutine inflexible sur la guerre en Ukraine à un mois des législatives"},
+    {"global":59,"year":2026,"category":"Paix & Sécurité","number":3,"title":"Israël — frappes en Syrie, rejet des critiques d'Ankara"},
+    {"global":60,"year":2026,"category":"Paix & Sécurité","number":4,"title":"Lettonie — un drone abattu par des avions de chasse de l'OTAN"},
+    {"global":61,"year":2026,"category":"Paix & Sécurité","number":5,"title":"Israël — les troupes resteront au Liban, en Syrie et à Gaza (ministre de la Défense)"},
+    {"global":62,"year":2026,"category":"Paix & Sécurité","number":6,"title":"Afghanistan — une opposition armée se met en place cinq ans après la chute de Kaboul"},
+    {"global":63,"year":2026,"category":"Paix & Sécurité","number":7,"title":"États-Unis — conditions de vie à bord du porte-avions Abraham Lincoln"},
+    {"global":64,"year":2026,"category":"Paix & Sécurité","number":8,"title":"Afrique de l'Ouest — tensions Nigéria–AES sur la lutte antiterroriste"},
+    {"global":65,"year":2026,"category":"Paix & Sécurité","number":9,"title":"Ouganda — approbation de l'envoi de troupes pour une force internationale à Gaza"},
+    {"global":66,"year":2026,"category":"Paix & Sécurité","number":10,"title":"Yémen — regain de tensions entre les Houthis et Riyad"},
+    {"global":67,"year":2026,"category":"Paix & Sécurité","number":11,"title":"Corée du Nord — posture militaire justifiée par le réarmement du Japon"},
+    {"global":68,"year":2026,"category":"Paix & Sécurité","number":12,"title":"Rwanda — crise à l'Est de la RDC, Kagamé pointe les FDLR"},
+    {"global":69,"year":2026,"category":"Paix & Sécurité","number":13,"title":"Europe — bataille de drones ukrainiens en mer d'Azov"},
+    {"global":70,"year":2026,"category":"Paix & Sécurité","number":14,"title":"Guinée-Bissau — la CEDEAO accusée de légitimer les putschistes"},
+    {"global":71,"year":2026,"category":"Paix & Sécurité","number":15,"title":"Russie — Moscou achète de l'essence à l'Inde face aux attaques ukrainiennes"},
+    {"global":72,"year":2026,"category":"Paix & Sécurité","number":16,"title":"Chine — Xi promet une armée forte pour le 105e anniversaire du PCC"},
+    {"global":73,"year":2026,"category":"Paix & Sécurité","number":17,"title":"États-Unis — accord avec l'Iran critiqué par les élus républicains"},
+    {"global":74,"year":2026,"category":"Paix & Sécurité","number":18,"title":"Nigéria — Tinubu se félicite de son bilan sécuritaire avant 2027"},
+    {"global":75,"year":2026,"category":"Paix & Sécurité","number":19,"title":"États-Unis — Washington veut réduire les avions de chasse sur les bases OTAN en Europe"},
+    {"global":76,"year":2026,"category":"Paix & Sécurité","number":20,"title":"Australie — déploiement de sous-marins américains dans le cadre de l'AUKUS"},
+    {"global":77,"year":2026,"category":"Paix & Sécurité","number":21,"title":"Russie — la proposition de rencontre de Zelensky refusée par Poutine"},
+    {"global":78,"year":2026,"category":"Paix & Sécurité","number":22,"title":"Moyen-Orient — cessez-le-feu Liban–Israël rejeté par le Hezbollah"},
+    {"global":79,"year":2026,"category":"Paix & Sécurité","number":23,"title":"États-Unis — texte ordonnant la fin de la guerre en Iran adopté par les députés"},
+    {"global":80,"year":2026,"category":"Paix & Sécurité","number":24,"title":"Madagascar — répression de la jeunesse (« G-Z ») par le régime militaire"},
+    {"global":81,"year":2026,"category":"Paix & Sécurité","number":25,"title":"Mali vs Mauritanie — désescalade après les accusations de Bamako"},
+    {"global":82,"year":2026,"category":"Paix & Sécurité","number":26,"title":"Union européenne — Orban fait échouer l'aide à Kiev"},
+    {"global":83,"year":2026,"category":"Paix & Sécurité","number":27,"title":"Moyen-Orient — frappes sur des installations gazières, inquiétude des monarchies du Golfe"},
+    {"global":84,"year":2026,"category":"Paix & Sécurité","number":28,"title":"Colombie — 1 000 défenseurs des droits humains tués (alerte ONU)"},
+    {"global":85,"year":2026,"category":"Paix & Sécurité","number":29,"title":"France — position de Paris sur le conflit au Moyen-Orient"},
+    {"global":86,"year":2026,"category":"Paix & Sécurité","number":30,"title":"États-Unis — « capitulation » de l'Iran, souhait de Trump"},
+    {"global":87,"year":2026,"category":"Paix & Sécurité","number":31,"title":"RDC — Tshisekedi pose ses conditions pour un dialogue national"},
+    {"global":88,"year":2026,"category":"Paix & Sécurité","number":32,"title":"Syrie — bouleversements dans le nord-est inquiétant les Yézidis"},
+    {"global":89,"year":2026,"category":"Paix & Sécurité","number":33,"title":"Taïwan — le Kuomintang souhaite coopérer avec la Chine pour la paix"},
+    {"global":90,"year":2026,"category":"Paix & Sécurité","number":34,"title":"Guinée-Bissau — délégation de la CEDEAO 45 jours après le coup d'État"},
+    {"global":91,"year":2026,"category":"Paix & Sécurité","number":35,"title":"Iran — Khamenei : la République islamique « ne reculera pas »"},
+    {"global":92,"year":2024,"category":"Gouvernance / Politique internationale","number":1,"title":"Niger — plusieurs proches de l'ex-président Bazoum déchus de leur nationalité"},
+    {"global":93,"year":2024,"category":"Gouvernance / Politique internationale","number":2,"title":"Union européenne — manne financière à la Moldavie avant deux scrutins cruciaux"},
+    {"global":94,"year":2024,"category":"Gouvernance / Politique internationale","number":3,"title":"États-Unis — course à la Maison Blanche : Obama aux côtés de Harris en Pennsylvanie"},
+    {"global":95,"year":2024,"category":"Gouvernance / Politique internationale","number":4,"title":"RDC — Katumbi et Fayulu font front commun pour la défense de la Constitution"},
+    {"global":96,"year":2024,"category":"Gouvernance / Politique internationale","number":5,"title":"France — réouverture de Notre-Dame : Macron réunit Trump et Zelensky"},
+    {"global":97,"year":2024,"category":"Gouvernance / Politique internationale","number":6,"title":"Sénégal — Diomaye Faye invité par Poutine à Moscou en 2025"},
+    {"global":98,"year":2024,"category":"Gouvernance / Politique internationale","number":7,"title":"COP29 — 300 milliards de dollars de financements climatiques annuels"},
+    {"global":99,"year":2024,"category":"Gouvernance / Politique internationale","number":8,"title":"Nigéria — première visite stratégique du Premier ministre indien à Abuja"},
+    {"global":100,"year":2024,"category":"Gouvernance / Politique internationale","number":9,"title":"Allemagne — premier entretien téléphonique Scholz–Poutine depuis deux ans"},
+    {"global":101,"year":2024,"category":"Gouvernance / Politique internationale","number":10,"title":"Cameroun — listes électorales provisoires : Kamto accuse Elecam"},
+    {"global":102,"year":2024,"category":"Gouvernance / Politique internationale","number":11,"title":"Sénégal — élections législatives, recomposition du paysage politique"},
+    {"global":103,"year":2024,"category":"Gouvernance / Politique internationale","number":12,"title":"Allemagne — visite d'adieu de Joe Biden à ses homologues européens"},
+    {"global":104,"year":2024,"category":"Gouvernance / Politique internationale","number":13,"title":"France — dernier sommet de la Francophonie"},
+    {"global":105,"year":2024,"category":"Gouvernance / Politique internationale","number":14,"title":"États-Unis — élections américaines : quels impacts sur le monde"},
+    {"global":106,"year":2024,"category":"Gouvernance / Politique internationale","number":15,"title":"Venezuela — négociation avec l'opposition rejetée par Maduro"},
+    {"global":107,"year":2024,"category":"Gouvernance / Politique internationale","number":16,"title":"Gabon — appels à candidature en faveur d'Oligui Nguema pour 2025"},
+    {"global":108,"year":2024,"category":"Gouvernance / Politique internationale","number":17,"title":"États-Unis — Kamala Harris attaquée par Trump sur ses positions sur Gaza"},
+    {"global":109,"year":2024,"category":"Gouvernance / Politique internationale","number":18,"title":"Sénégal — Amadou Ba lance un mouvement d'opposition"},
+    {"global":110,"year":2024,"category":"Gouvernance / Politique internationale","number":19,"title":"Allemagne — visite d'Orban en mode provocation"},
+    {"global":111,"year":2024,"category":"Gouvernance / Politique internationale","number":20,"title":"Algérie — convocation du corps électoral pour la présidentielle 2024"},
+    {"global":112,"year":2024,"category":"Gouvernance / Politique internationale","number":21,"title":"Afrique du Sud — l'ANC sanctionné lors des élections générales"},
+    {"global":113,"year":2024,"category":"Gouvernance / Politique internationale","number":22,"title":"France — Les Républicains attaqués au sujet des élections européennes"},
+    {"global":114,"year":2024,"category":"Gouvernance / Politique internationale","number":23,"title":"Ukraine — muselage des médias : les journalistes accusent Zelensky"},
+    {"global":115,"year":2024,"category":"Gouvernance / Politique internationale","number":24,"title":"États-Unis — Trump condamné dans le procès Stormy, lève 50 M$ de dons"},
+    {"global":116,"year":2025,"category":"Gouvernance / Politique internationale","number":1,"title":"Mali — lancement officiel de la Banque confédérale d'investissements de l'AES"},
+    {"global":117,"year":2025,"category":"Gouvernance / Politique internationale","number":2,"title":"Bosnie-Herzégovine — le pays reste déchiré 30 ans après les accords de Dayton"},
+    {"global":118,"year":2025,"category":"Gouvernance / Politique internationale","number":3,"title":"Irak — fin de la mission d'assistance de l'ONU post-Saddam Hussein"},
+    {"global":119,"year":2025,"category":"Gouvernance / Politique internationale","number":4,"title":"Débat sur le Conseil de sécurité"},
+    {"global":120,"year":2025,"category":"Gouvernance / Politique internationale","number":5,"title":"Argentine — situation économique"},
+    {"global":121,"year":2025,"category":"Gouvernance / Politique internationale","number":6,"title":"Inde–Afghanistan — rapprochement"},
+    {"global":122,"year":2025,"category":"Gouvernance / Politique internationale","number":7,"title":"Cameroun — réactions au discours d'investiture de Paul Biya"},
+    {"global":123,"year":2025,"category":"Gouvernance / Politique internationale","number":8,"title":"Israël — 30 ans après son assassinat, hommage à Yitzhak Rabin"},
+    {"global":124,"year":2025,"category":"Gouvernance / Politique internationale","number":9,"title":"Sénégal — appel à la diaspora pour redresser les finances publiques"},
+    {"global":125,"year":2025,"category":"Gouvernance / Politique internationale","number":10,"title":"Cameroun — présidentielle du 12 octobre : suspension des émissions politiques"},
+    {"global":126,"year":2025,"category":"Gouvernance / Politique internationale","number":11,"title":"Afrique — où sont passés les espoirs des indépendances ?"},
+    {"global":127,"year":2025,"category":"Gouvernance / Politique internationale","number":12,"title":"Îles Salomon — Forum des îles pacifiques : Pékin et Taipei exclus par Honiara"},
+    {"global":128,"year":2025,"category":"Gouvernance / Politique internationale","number":13,"title":"Afrique — craintes des pays producteurs face aux droits de douane américains"},
+    {"global":129,"year":2025,"category":"Gouvernance / Politique internationale","number":14,"title":"Allemagne — pression sur le gouvernement face à la situation à Gaza"},
+    {"global":130,"year":2025,"category":"Gouvernance / Politique internationale","number":15,"title":"États-Unis — imposition mondiale minimale de 15% : le G7 exempte les entreprises américaines"},
+    {"global":131,"year":2025,"category":"Gouvernance / Politique internationale","number":16,"title":"RDC — après la levée de son immunité, Kabila dénonce des décisions arbitraires"},
+    {"global":132,"year":2025,"category":"Gouvernance / Politique internationale","number":17,"title":"Cameroun — Cabral Libii, candidat officiel du PCRN"},
+    {"global":133,"year":2025,"category":"Gouvernance / Politique internationale","number":18,"title":"Togo — Faure Gnassingbé désormais président du Conseil"},
+    {"global":134,"year":2025,"category":"Gouvernance / Politique internationale","number":19,"title":"Liberté de la presse dans le monde"},
+    {"global":135,"year":2025,"category":"Gouvernance / Politique internationale","number":20,"title":"Côte d'Ivoire — le PPA-CI et le PDCI suspendent leur participation à la CEI"},
+    {"global":136,"year":2025,"category":"Gouvernance / Politique internationale","number":21,"title":"États-Unis — bras de fer entre le juge Boasberg et Donald Trump"},
+    {"global":137,"year":2025,"category":"Gouvernance / Politique internationale","number":22,"title":"Japon–Corée du Sud–Chine — renforcement de la coopération entre ces géants d'Asie"},
+    {"global":138,"year":2025,"category":"Gouvernance / Politique internationale","number":23,"title":"Ghana — mission de John Dramani Mahama dans les pays de l'AES"},
+    {"global":139,"year":2025,"category":"Gouvernance / Politique internationale","number":24,"title":"Gabon — 23 candidats déposent leur dossier pour la présidentielle d'avril 2025"},
+    {"global":140,"year":2025,"category":"Gouvernance / Politique internationale","number":25,"title":"Bosnie-Herzégovine — les lois séparatistes suspendues par la justice"},
+    {"global":141,"year":2025,"category":"Gouvernance / Politique internationale","number":26,"title":"États-Unis — les subventions de l'université Columbia coupées par Trump"},
+    {"global":142,"year":2025,"category":"Gouvernance / Politique internationale","number":27,"title":"États-Unis — suspension des aides fédérales : première marche arrière de Trump"},
+    {"global":143,"year":2025,"category":"Gouvernance / Politique internationale","number":28,"title":"Sahel — l'AES peut-elle déstabiliser la CEDEAO après le retrait du Burkina, Mali, Niger ?"},
+    {"global":144,"year":2025,"category":"Gouvernance / Politique internationale","number":29,"title":"Gambie — depuis son exil, Yahya Jammeh annonce vouloir revenir"},
+    {"global":145,"year":2025,"category":"Gouvernance / Politique internationale","number":30,"title":"Arabie saoudite — Riyad et Jérusalem : rapprochement relancé avec Trump"},
+    {"global":146,"year":2025,"category":"Gouvernance / Politique internationale","number":31,"title":"Chine — Pékin souhaite se positionner en leader mondial du multilatéralisme"},
+    {"global":147,"year":2025,"category":"Gouvernance / Politique internationale","number":32,"title":"Togo — n'exclut pas d'adhérer à l'AES, crainte de dislocation de la CEDEAO"},
+    {"global":148,"year":2025,"category":"Gouvernance / Politique internationale","number":33,"title":"États-Unis — investiture de Donald Trump"},
+    {"global":149,"year":2025,"category":"Gouvernance / Politique internationale","number":34,"title":"RDC — cérémonie de vœux 2025 au corps diplomatique"},
+    {"global":150,"year":2026,"category":"Gouvernance / Politique internationale","number":1,"title":"Bénin–Niger — accusation de déstabilisation, où en sont réellement les relations ?"},
+    {"global":151,"year":2026,"category":"Gouvernance / Politique internationale","number":2,"title":"Sénégal — double présidence dans les instances de la CEDEAO : les défis à relever"},
+    {"global":152,"year":2026,"category":"Gouvernance / Politique internationale","number":3,"title":"Zambie — Amnesty International dénonce des arrestations arbitraires, chef de l'opposition convoqué"},
+    {"global":153,"year":2026,"category":"Gouvernance / Politique internationale","number":4,"title":"Chine — Pékin en position stratégique à Téhéran"},
+    {"global":154,"year":2026,"category":"Gouvernance / Politique internationale","number":5,"title":"Pérou — influence de la Chine à Lima : Washington tente de la supplanter"},
+    {"global":155,"year":2026,"category":"Gouvernance / Politique internationale","number":6,"title":"Tchad — l'opposant Succès Masra gracié et libéré"},
+    {"global":156,"year":2026,"category":"Gouvernance / Politique internationale","number":7,"title":"Serbie — alliée historique de Moscou, pourquoi Belgrade se rapproche de Kiev"},
+    {"global":157,"year":2026,"category":"Gouvernance / Politique internationale","number":8,"title":"Sénégal — rencontre Bassirou Diomaye Faye et Macky Sall : analyse"},
+    {"global":158,"year":2026,"category":"Gouvernance / Politique internationale","number":9,"title":"Chine — relation Pékin–Moscou : forte, indispensable et déséquilibrée"},
+    {"global":159,"year":2026,"category":"Gouvernance / Politique internationale","number":10,"title":"États-Unis — ingérence électorale : Trump accuse la Chine à trois mois des mid-terms"},
+    {"global":160,"year":2026,"category":"Gouvernance / Politique internationale","number":11,"title":"Sénégal — création de son propre parti politique par Diomaye Faye"},
+    {"global":161,"year":2026,"category":"Gouvernance / Politique internationale","number":12,"title":"États-Unis — refus de renouveler l'ACEUM"},
+    {"global":162,"year":2026,"category":"Gouvernance / Politique internationale","number":13,"title":"Zimbabwe — une réforme pourrait maintenir Mnangagwa au pouvoir jusqu'en 2030"},
+    {"global":163,"year":2026,"category":"Gouvernance / Politique internationale","number":14,"title":"Ghana — sommet d'Accra sur les réparations de l'esclavage"},
+    {"global":164,"year":2026,"category":"Gouvernance / Politique internationale","number":15,"title":"Union européenne — le président ukrainien plaide pour l'accélération du processus d'adhésion"},
+    {"global":165,"year":2026,"category":"Gouvernance / Politique internationale","number":16,"title":"Israël — contacts rompus avec la cheffe de la diplomatie européenne"},
+    {"global":166,"year":2026,"category":"Gouvernance / Politique internationale","number":17,"title":"France — visite du Premier ministre indien à Paris en amont du G7"},
+    {"global":167,"year":2026,"category":"Gouvernance / Politique internationale","number":18,"title":"UEMOA, AES, CEDEAO — quelle place pour le Bénin dans la nouvelle géostratégie régionale"},
+    {"global":168,"year":2026,"category":"Gouvernance / Politique internationale","number":19,"title":"Sénégal — le parti Pastef tient son congrès à Dakar"},
+    {"global":169,"year":2026,"category":"Gouvernance / Politique internationale","number":20,"title":"Burundi — l'opposition suspend sa participation à la présidentielle de 2027"},
+    {"global":170,"year":2026,"category":"Gouvernance / Politique internationale","number":21,"title":"Azerbaïdjan — examen du partenariat énergétique avec l'Union européenne"},
+    {"global":171,"year":2026,"category":"Gouvernance / Politique internationale","number":22,"title":"Union européenne et Israël — appel à suspendre l'accord d'association"},
+    {"global":172,"year":2026,"category":"Gouvernance / Politique internationale","number":23,"title":"Côte d'Ivoire — 80e anniversaire du PDCI, retour souhaité de Tidjane Thiam"},
+    {"global":173,"year":2026,"category":"Gouvernance / Politique internationale","number":24,"title":"Guinée — un arrêté ministériel dissout quarante partis politiques d'opposition"},
+    {"global":174,"year":2026,"category":"Gouvernance / Politique internationale","number":25,"title":"Chine — 37e anniversaire du massacre de Tiananmen : mémoire effacée ou à reconstruire ?"},
+    {"global":175,"year":2026,"category":"Gouvernance / Politique internationale","number":26,"title":"États-Unis — les patrons de grandes entreprises critiquent les méthodes de l'ICE"},
+    {"global":176,"year":2026,"category":"Gouvernance / Politique internationale","number":27,"title":"Union européenne — accord de libre-échange avec le Mercosur approuvé"}
+];
+
+// Données existantes des interventions : conservées intégralement.
+const DATA = [
+    // 2026
+    {date:'2026-09-07', id:'0HwTKLrPhKg', type:'TV', title:'Émission TV — 07 sept. 2026'},
+    {date:'2026-09-07', id:'t83G1lWS_LI', type:'TV', title:'Émission TV — 07 sept. 2026'},
+    {date:'2026-08-31', id:'8uVh7woOk8g', type:'TV', title:'Émission TV — 31 août 2026'},
+    {date:'2026-08-24', id:'udG5tN72OM8', type:'TV', title:'Émission TV — 24 août 2026'},
+    {date:'2026-08-18', id:'x1Bi2-MEsiE', type:'TV', title:'Émission TV — 18 août 2026'},
+    {date:'2026-08-10', id:'QX89L2RfEBU', type:'TV', title:'Émission TV — 10 août 2026'},
+    {date:'2026-07-20', id:'fOgzjIWWA90', type:'TV', title:'Émission TV — 20 juil. 2026'},
+    {date:'2026-07-06', id:'0BEULNKWMqc', type:'TV', title:'Émission TV — 06 juil. 2026'},
+    {date:'2026-06-22', id:'2saZvqU1e6M', type:'TV', title:'Émission TV — 22 juin 2026'},
+    {date:'2026-06-15', id:'3y3Oz_21VQ4', type:'TV', title:'Émission TV — 15 juin 2026'},
+    {date:'2026-06-11', id:'dDKJb3IonJs', type:'TV', title:'Émission TV — 11 juin 2026'},
+    {date:'2026-06-08', id:'i7qxfle_IBU', type:'TV', title:'Émission TV — 08 juin 2026'},
+    {date:'2026-05-18', id:'brze1j-vOmM', type:'TV', title:'Émission TV — 18 mai 2026'},
+    {date:'2026-05-11', id:'93UlObgYsbc', type:'TV', title:'Émission TV — 11 mai 2026'},
+    {date:'2026-04-20', id:'Qk4afu8qrrc', type:'TV', title:'Émission TV — 20 avr. 2026'},
+    {date:'2026-04-13', id:'y5Kne-LcJYo', type:'TV', title:'Émission TV — 13 avr. 2026'},
+    {date:'2026-03-23', id:'u3B8-s8X3FY', type:'TV', title:'Émission TV — 23 mars 2026'},
+    {date:'2026-03-09', id:'SLISCcRuZj4', type:'TV', title:'Émission TV — 09 mars 2026'},
+    {date:'2026-02-02', id:'kjZQahYEiLM', type:'TV', title:'Émission TV — 02 fév. 2026'},
+    {date:'2026-01-14', id:'yRf2dKoDeGY', type:'TV', title:'Émission TV — 14 janv. 2026'},
+    // 2025
+    {date:'2025-12-15', id:'zzkA-z5Ww0Q', type:'TV', title:'Émission TV — 15 déc. 2025'},
+    {date:'2025-12-06', id:'l-8xXIpDp-E', type:'TV', title:'Émission TV — 06 déc. 2025'},
+    {date:'2025-11-24', id:'NxEyZvcHPb8', type:'TV', title:'Émission TV — 24 nov. 2025'},
+    {date:'2025-11-10', id:'zNKZ0Zx5iTA', type:'TV', title:'Émission TV — 10 nov. 2025'},
+    {date:'2025-11-03', id:'-E80VgdiFi8', type:'TV', title:'Émission TV — 03 nov. 2025'},
+    {date:'2025-09-22', id:'leLtQc90wFM', type:'TV', title:'Émission TV — 22 sept. 2025'},
+    {date:'2025-09-08', id:'z19Pv0mcnV4', type:'TV', title:'Émission TV — 08 sept. 2025'},
+    {date:'2025-08-11', id:'R2dhIyT-VTA', type:'TV', title:'Émission TV — 11 août 2025'},
+    {date:'2025-08-04', id:'AnY2CctOuL8', type:'TV', title:'Émission TV — 04 août 2025'},
+    {date:'2025-06-30', id:'n7UTlUAaS6Y', type:'TV', title:'Émission TV — 30 juin 2025'},
+    {date:'2025-05-26', id:'PYOp5QLM72g', type:'TV', title:'Émission TV — 26 mai 2025'},
+    {date:'2025-05-05', id:'uGrIbBVzfxQ', type:'TV', title:'Émission TV — 05 mai 2025'},
+    {date:'2025-04-14', id:'gr7gQsPUcLs', type:'TV', title:'Émission TV — 14 avr. 2025'},
+    {date:'2025-03-24', id:'J5c6pN5hbAc', type:'TV', title:'Émission TV — 24 mars 2025'},
+    {date:'2025-03-10', id:'ji7VU3WeGxA', type:'TV', title:'Émission TV — 10 mars 2025'},
+    {date:'2025-03-02', id:'ecB7DJGy7l4', type:'TV', title:'Émission TV — 02 mars 2025'},
+    {date:'2025-02-03', id:'WRcC0nNymQs', type:'TV', title:'Émission TV — 03 fév. 2025'},
+    {date:'2025-02-03', id:'xSmz2bnWvPY', type:'TV', title:'Émission TV — 03 fév. 2025'},
+    {date:'2025-01-27', id:'W_1qjw849sc', type:'TV', title:'Émission TV — 27 janv. 2025'},
+    {date:'2025-01-26', id:'0vEhXgyPVkM', type:'TV', title:'Émission TV — 26 janv. 2025'},
+    {date:'2025-01-20', id:'-ZxazcozK_E', type:'TV', title:'Émission TV — 20 janv. 2025'},
+    {date:'2025-01-12', id:'8GX4Gc-IyCs', type:'TV', title:'Émission TV — 12 janv. 2025'},
+    // 2024
+    {date:'2024-12-30', id:'w3dozwkjLfQ', type:'TV', title:'Émission TV — 30 déc. 2024'},
+    {date:'2024-12-09', id:'dG0ecoUmw8k', type:'TV', title:'Émission TV — 09 déc. 2024'},
+    {date:'2024-11-25', id:'gzTNfTfSZeY', type:'TV', title:'Émission TV — 25 nov. 2024'},
+    {date:'2024-11-18', id:'UHo_FbxnIzY', type:'TV', title:'Émission TV — 18 nov. 2024'},
+    {date:'2024-10-28', id:'9JqZpJQciF8', type:'TV', title:'Émission TV — 28 oct. 2024'},
+    {date:'2024-10-21', id:'5IGelG_PZiE', type:'TV', title:'Émission TV — 21 oct. 2024'},
+    {date:'2024-10-07', id:'eTEqTROTC5s', type:'TV', title:'Émission TV — 07 oct. 2024'},
+    {date:'2024-08-19', id:'OXhJ8PZh7ck', type:'TV', title:'Émission TV — 19 août 2024'},
+    {date:'2024-08-12', id:'Xk7FUfOZjsU', type:'TV', title:'Émission TV — 12 août 2024'},
+    {date:'2024-07-29', id:'lssVGSs52LM', type:'TV', title:'Émission TV — 29 juil. 2024'},
+    {date:'2024-06-24', id:'hGBONlU7k0k', type:'TV', title:'Émission TV — 24 juin 2024'},
+    {date:'2024-06-10', id:'TmCx8vMc2q4', type:'TV', title:'Émission TV — 10 juin 2024'},
+    {date:'2024-06-03', id:'jPUnBfdcg8w', type:'TV', title:'Émission TV — 03 juin 2024'},
+    {date:'2024-05-27', id:'hdMP-x6Msag', type:'TV', title:'Émission TV — 27 mai 2024'},
+
+    // ============ Radio / Articles (LinkedIn) — originaux ============
+    {date:'2026-01-01', url:'https://www.linkedin.com/posts/research-geopolitics_67%C3%A8me-sommet-ordinaire-des-chefs-detat-et-activity-', type:'Radio', title:"67ᵉ Sommet ordinaire des Chefs d'État et de Gouvernement"},
+    {date:'2026-01-01', url:'https://www.linkedin.com/posts/research-geopolitics_est-ce-que-ladoption-dun-r%C3%A9gime-parlementaire-activity-', type:'Radio', title:"L'adoption d'un régime parlementaire"},
+
+    // ============ NOUVEAUX AJOUTS (client — 29/09) ============
+    // Articles Pulse LinkedIn
+    {date:'2024-09-15', url:'https://www.linkedin.com/pulse/que-retenir-du-retour-de-lex%C3%A9cutif-nord-irlandais-xgaze', type:'Radio', title:"Que retenir du retour de l'exécutif nord-irlandais au Royaume-Uni ?"},
+    {date:'2024-09-15', url:'https://www.linkedin.com/pulse/tenants-et-aboutissants-de-laccusation-sud-africaine-wqpef', type:'Radio', title:"Tenants et aboutissants de l'accusation sud-africaine à l'endroit d'Israël pour crime de génocide"},
+    {date:'2024-09-15', url:'https://www.linkedin.com/pulse/afrique-de-louest-en-crise-d%C3%A9mocratie-ou-r%C3%A9volution-d3ine', type:'Radio', title:"Afrique de l'Ouest en crise de démocratie ou révolution ?"},
+
+    // Posts LinkedIn (dates estimées depuis l'ID d'activité)
+    {date:'2024-07-15', url:'https://www.linkedin.com/posts/research-geopolitics_une-analyse-dune-relation-qui-semble-r%C3%A9sister-activity-7221061066342961153-g-VD', type:'Radio', title:"Une analyse d'une relation qui semble résister"},
+    {date:'2024-06-19', url:'https://www.linkedin.com/posts/research-geopolitics_la-complexit%C3%A9-de-la-question-palestinienne-activity-7204238411145097217-b0dH', type:'Radio', title:"La complexité de la question palestinienne"},
+    {date:'2024-04-10', url:'https://www.linkedin.com/posts/research-geopolitics_menace-doffensive-%C3%A0-rafah-par-isra%C3%ABl-faites-activity-7181554363310469120-ecv-', type:'Radio', title:"Menace d'offensive à Rafah par Israël"},
+    {date:'2024-03-09', url:'https://www.linkedin.com/posts/research-geopolitics_comment-peut-on-analyser-la-port%C3%A9e-des-d%C3%A9clarations-activity-7171448849952141312-L_i3', type:'Radio', title:"Comment peut-on analyser la portée des déclarations ?"},
+    {date:'2024-01-20', url:'https://www.linkedin.com/posts/research-geopolitics_activity-7152768420046860289-io90', type:'Radio', title:"Publication LinkedIn — 20 janv. 2024"},
+    {date:'2024-01-16', url:'https://www.linkedin.com/posts/research-geopolitics_activity-7151096316641628160-sDcy', type:'Radio', title:"Publication LinkedIn — 16 janv. 2024"},
+    {date:'2023-12-17', url:'https://www.linkedin.com/posts/research-geopolitics_activity-7144271032432951296-XLFC', type:'Radio', title:"Publication LinkedIn — 17 déc. 2023"},
+    {date:'2023-12-16', url:'https://www.linkedin.com/posts/research-geopolitics_activity-7143944074859880448-NpnG', type:'Radio', title:"Publication LinkedIn — 16 déc. 2023"}
+  ];
+
+(function(){
+const analysisGrid=document.getElementById('analysisGrid'),analysisCount=document.getElementById('analysisCount'),search=document.getElementById('analysisSearch');
+let analysisFilter='all';
+function renderAnalyses(){
+ const q=search.value.trim().toLowerCase();
+ let items=ANALYSES.filter(x=>{
+   const f=analysisFilter;
+   const cat=f==='P&S' ? x.category==='Paix & Sécurité' : f==='GIPI' ? x.category==='Gouvernance / Politique internationale' : true;
+   const yr=['2024','2025','2026'].includes(f) ? String(x.year)===f : true;
+   const text=(x.title+' '+x.category+' '+x.year).toLowerCase();
+   return cat&&yr&&(!q||text.includes(q));
+ });
+ analysisCount.textContent=items.length;
+ analysisGrid.innerHTML='';
+ if(!items.length){analysisGrid.innerHTML='<div class="no-results">Aucune analyse ne correspond à votre recherche.</div>';return;}
+ items.forEach(x=>{const card=document.createElement('article');card.className='analysis-card reveal';card.innerHTML=`<div class="analysis-meta"><span class="analysis-year">$${x.year}</span><span class="analysis-cat">$${x.category==='Paix & Sécurité'?'Paix & Sécurité':'Gouvernance / Politique'}</span></div><div class="analysis-number">N° $${x.number}</div><h3 class="analysis-title">$${x.title}</h3><div class="analysis-footer">Analyse $${x.year} · Corpus statistique</div>`;analysisGrid.appendChild(card);});
+ observeReveals();
+}
+function observeReveals(){const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:.08});document.querySelectorAll('.reveal:not(.visible)').forEach(el=>obs.observe(el));}
+document.querySelectorAll('#analysisFilters .filter-btn').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('#analysisFilters .filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');analysisFilter=btn.dataset.filter;renderAnalyses();}));
+search.addEventListener('input',renderAnalyses);
+
+// Interventions existantes : logique conservée, avec nouveau style.
+const grid=document.getElementById('grid'),countNum=document.getElementById('countNum'),modal=document.getElementById('videoModal'),frame=document.getElementById('modalFrame'),modalClose=document.getElementById('modalClose');
+function fmtDate(iso){return new Date(iso).toLocaleDateString('fr-FR',{day:'2-digit',month:'long',year:'numeric'})}
+function ytThumb(id){return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
+function renderInterventions(filter='all'){grid.innerHTML='';let items=DATA;if(filter==='TV'||filter==='Radio')items=DATA.filter(x=>x.type===filter);else if(['2023','2024','2025','2026'].includes(filter))items=DATA.filter(x=>x.date.startsWith(filter));countNum.textContent=items.length;if(!items.length){grid.innerHTML='<div class="no-results">Aucune intervention pour ce filtre.</div>';return;}
+items.forEach(item=>{const card=document.createElement('article');card.className='intervention-card reveal';if(item.id){card.innerHTML=`<div class="ana-thumb"><img src="${ytThumb(item.id)}" alt="${item.title}" loading="lazy" onerror="this.src='pp.jpeg'"><span class="ana-badge">${item.type}</span><div class="ana-play"><svg viewBox="0 0 24 24" width="62" height="62" fill="#d4af5a"><path d="M8 5v14l11-7z"/></svg></div></div><div class="ana-body"><div class="ana-date">${fmtDate(item.date)}</div><div class="ana-title">${item.title}</div><div class="ana-actions"><a class="ana-link" href="https://youtu.be/${item.id}" target="_blank" rel="noopener">YouTube ↗</a><button class="ana-embed-btn" data-embed="${item.id}">Lire ici</button></div></div>`;card.querySelector('.ana-thumb').addEventListener('click',()=>openModal(item.id));}else{card.innerHTML=`<div class="ana-thumb" style="display:flex;align-items:center;justify-content:center"><svg width="60" height="60" viewBox="0 0 24 24" fill="#d4af5a"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8 14H7v-2h4v2m0-4H7v-2h4v2m0-4H7V7h4v2m6 8h-4v-2h4v2m0-4h-4v-2h4v2m0-4h-4V7h4v2z"/></svg><span class="ana-badge">${item.type}</span></div><div class="ana-body"><div class="ana-date">${fmtDate(item.date)}</div><div class="ana-title">${item.title}</div><div class="ana-actions"><a class="ana-link" href="${item.url}" target="_blank" rel="noopener">Lire sur LinkedIn ↗</a></div></div>`;}grid.appendChild(card);});
+grid.querySelectorAll('[data-embed]').forEach(btn=>btn.addEventListener('click',e=>{e.stopPropagation();openModal(btn.dataset.embed)}));observeReveals();}
+function openModal(id){frame.src=`https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;modal.classList.add('open');document.body.style.overflow='hidden'}function closeModal(){frame.src='';modal.classList.remove('open');document.body.style.overflow=''}modalClose.addEventListener('click',closeModal);modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeModal()});
+document.querySelectorAll('#interventionFilters .filter-btn').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('#interventionFilters .filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderInterventions(btn.dataset.filter)}));
+// Loader
+const loader=document.getElementById('loader');document.body.style.overflow='hidden';const hide=()=>{loader.classList.add('cache');document.body.style.overflow=''};addEventListener('load',()=>setTimeout(hide,1200));setTimeout(hide,2400);
+// Scroll
+const nav=document.getElementById('navbar'),barre=document.getElementById('barreLecture');addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>60);const h=document.documentElement.scrollHeight-innerHeight;barre.style.width=(h>0?scrollY/h*100:0)+'%'},{passive:true});
+// Mobile
+const btn=document.getElementById('menuBtn'),menu=document.getElementById('mobileMenu'),close=document.getElementById('closeMenu');btn.addEventListener('click',()=>menu.classList.add('open'));close.addEventListener('click',()=>menu.classList.remove('open'));menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+// Cursor
+const c=document.getElementById('curseur'),pt=document.getElementById('curseurPoint');if(c&&pt&&!matchMedia('(max-width:1024px)').matches&&matchMedia('(hover:hover)').matches){let sx=0,sy=0,cx=0,cy=0;document.addEventListener('mousemove',e=>{sx=e.clientX;sy=e.clientY});(function loop(){cx+=(sx-cx)*.18;cy+=(sy-cy)*.18;c.style.transform=`translate(${cx}px,${cy}px) translate(-50%,-50%)`;pt.style.transform=`translate(${sx}px,${sy}px) translate(-50%,-50%)`;requestAnimationFrame(loop)})();document.addEventListener('mouseover',e=>{if(e.target.closest('a,button,.analysis-card,.intervention-card'))c.classList.add('hover')});document.addEventListener('mouseout',e=>{if(e.target.closest('a,button,.analysis-card,.intervention-card'))c.classList.remove('hover')})}
+renderAnalyses();renderInterventions('all');observeReveals();
+})();
+</script>
+</body></html>
